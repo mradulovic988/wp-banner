@@ -145,6 +145,54 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			<?php
 		}
 
+		public function wp_banner_docs()
+		{
+			?>
+            <div class="wrap">
+                <div id="icon-options-general" class="icon32"></div>
+                <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+				<?php $this->is_active( 'wp_docs', 'wp_docs', 'wp_premium' ); ?>
+
+                <form action="options.php" method="post">
+
+					<?php
+					settings_fields( '' );
+					do_settings_sections( '' );
+
+					submit_button();
+					?>
+
+                </form>
+
+            </div>
+			<?php
+		}
+
+		public function wp_banner_premium()
+		{
+			?>
+            <div class="wrap">
+                <div id="icon-options-general" class="icon32"></div>
+                <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+				<?php $this->is_active( 'wp_premium', 'wp_premium', '' ); ?>
+
+                <form action="options.php" method="post">
+
+					<?php
+					settings_fields( '' );
+					do_settings_sections( '' );
+
+					submit_button();
+					?>
+
+                </form>
+
+            </div>
+			<?php
+		}
+
 		/**
 		 * Method where we register settings, sections for the WP Banner page
 		 */
