@@ -1,0 +1,105 @@
+.wp-banner-field-size {
+    width: 230px;
+    height: 30px;
+}
+
+.wp-banner-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.wp-banner-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.wp-banner-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.wp-banner-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .wp-banner-slider {
+    background-color: #2196F3;
+}
+
+input:focus + .wp-banner-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .wp-banner-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.wp-banner-slider.wp-banner-round {
+    border-radius: 34px;
+}
+
+.wp-banner-slider.wp-banner-round:before {
+    border-radius: 50%;
+}
+
+input.wp_banner_template_input:checked ~ img.wp_banner_template_img {
+    opacity: 1;
+    filter: none;
+}
+
+label.wp_banner_template_label, img.wp_banner_template_img {
+    position: relative;
+    top: -80px;
+}
+
+label.wp_banner_template_label, input.wp_banner_template_input[type=radio] {
+    top: 60px;
+}
+
+img.wp_banner_template_img {
+    opacity: .7;
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    object-fit: cover;
+    width: 800px;
+    height: 250px;
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+img.wp_banner_template_img:hover {
+    opacity: 1;
+    filter: none;
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+input.wp_banner_template_input[type=radio] {
+    visibility: hidden;
+}
