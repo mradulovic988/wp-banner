@@ -239,12 +239,12 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			$options = get_option( 'wp_banner_settings_fields' );
 			$is_options_empty = ( ! empty( $options[ 'position' ] ) ? $options[ 'position' ] : '' );
 
-			echo '<input type="radio" id="wp_banner_id_position" name="wp_banner_settings_fields[position]" value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>' . __( 'Top', 'wp_banner') . '<br>';
-			echo '<input type="radio" id="wp_banner_id_position" name="wp_banner_settings_fields[position]" value="Center"' . checked( 'Center', $is_options_empty, false ) . '"/>' . __( 'Center', 'wp_banner') . '<br>';
-			echo '<input type="radio" id="wp_banner_id_position" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp_banner') . '<br>';
-			echo '<input type="radio" id="wp_banner_id_position" name="wp_banner_settings_fields[position]" value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>' . __( 'Popup', 'wp_banner') . '<br>';
-			echo '<input type="radio" id="wp_banner_id_position" name="wp_banner_settings_fields[position]" value="Fixed"' . checked( 'Fixed', $is_options_empty, false ) . '"/>' . __( 'Fixed', 'wp_banner') . '<br>';
-			echo '<input type="radio" id="wp_banner_id_position" name="wp_banner_settings_fields[position]" value="Sticky"' . checked( 'Sticky', $is_options_empty, false ) . '"/>' . __( 'Sticky', 'wp_banner') . '<br>';
+			echo '<label for="wp_banner_position_top"><input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>' . __( 'Top', 'wp_banner') . '</label><br>';
+			echo '<label for="wp_banner_position_center"><input type="radio" id="wp_banner_position_center" name="wp_banner_settings_fields[position]" value="Center"' . checked( 'Center', $is_options_empty, false ) . '"/>' . __( 'Center', 'wp_banner') . '</label><br>';
+			echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp_banner') . '</label><br>';
+			echo '<label for="wp_banner_position_popup"><input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>' . __( 'Popup', 'wp_banner') . '</label><br>';
+			echo '<label for="wp_banner_position_fixed"><input type="radio" id="wp_banner_position_fixed" name="wp_banner_settings_fields[position]" value="Fixed"' . checked( 'Fixed', $is_options_empty, false ) . '"/>' . __( 'Fixed', 'wp_banner') . '</label><br>';
+			echo '<label for="wp_banner_position_sticky"><input type="radio" id="wp_banner_position_sticky" name="wp_banner_settings_fields[position]" value="Sticky"' . checked( 'Sticky', $is_options_empty, false ) . '"/>' . __( 'Sticky', 'wp_banner') . '</label><br>';
 		}
 
 		// Listing all of the pages -> Think about the edit slug comma separated
