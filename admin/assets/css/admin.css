@@ -82,7 +82,7 @@ img.wp_banner_template_img {
     filter: blur(4px);
     object-fit: cover;
     width: 800px;
-    height: 250px;
+    height: 120px;
     -webkit-transition: all .1s ease;
     -moz-transition: all .1s ease;
     -ms-transition: all .1s ease;
