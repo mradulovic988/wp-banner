@@ -77,11 +77,11 @@ label.wp_banner_template_label, input.wp_banner_template_input[type=radio] {
 }
 
 img.wp_banner_template_img {
-    opacity: .7;
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
+    opacity: .5;
+    -webkit-filter: blur(3px);
+    filter: blur(2px);
     object-fit: cover;
-    width: 800px;
+    width: 100%;
     height: 120px;
     -webkit-transition: all .1s ease;
     -moz-transition: all .1s ease;
