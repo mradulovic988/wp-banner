@@ -37,6 +37,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			add_submenu_page( 'wp_banner', __( 'WP Banner', 'wp-banner' ), __( 'WP Banner', 'wp-banner' ), 'manage_options', 'wp_banner', array( $this, 'wp_banner_main' ) );
 			add_submenu_page( 'wp_banner', __( 'Cookies', 'wp-banner' ), __( 'Cookies', 'wp-banner' ), 'manage_options', 'wp_cookies', array( $this, 'wp_banner_cookies' ) );
 			add_submenu_page( 'wp_banner', __( 'Maintenance Mode', 'wp-banner' ), __( 'Maintenance Mode', 'wp-banner' ), 'manage_options', 'wp_maintenance', array( $this, 'wp_banner_maintenance' ) );
+			add_submenu_page( 'wp_banner', __( 'Popup', 'wp-banner' ), __( 'Popup', 'wp-banner' ), 'manage_options', 'wp_popup', array( $this, 'wp_banner_popup' ) );
 			add_submenu_page( 'wp_banner', __( 'Documentation', 'wp-banner' ), __( 'Documentation', 'wp-banner' ), 'manage_options', 'wp_docs', array( $this, 'wp_banner_docs' ) );
 			add_submenu_page( 'wp_banner', __( 'Upgrade to Premium', 'wp-banner' ), __( 'Upgrade to Premium', 'wp-banner' ), 'manage_options', 'wp_premium', array( $this, 'wp_banner_premium' ) );
 		}
@@ -55,6 +56,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
                 <a href="?page=wp_banner" class="nav-tab <?php if( $active_tab == 'wp_banner' ) { echo 'nav-tab-active'; } ?> "><?php _e( 'WP Banner', 'wp-banner' ); ?></a>
                 <a href="?page=wp_cookies" class="nav-tab <?php if( $active_tab == 'wp_cookies' ) { echo 'nav-tab-active'; } ?> "><?php _e( 'Cookies', 'wp-banner' ); ?></a>
                 <a href="?page=wp_maintenance" class="nav-tab <?php if( $active_tab == 'wp_maintenance' ) { echo 'nav-tab-active'; } ?> "><?php _e( 'Maintenance Mode', 'wp-banner' ); ?></a>
+                <a href="?page=wp_popup" class="nav-tab <?php if( $active_tab == 'wp_popup' ) { echo 'nav-tab-active'; } ?> "><?php _e( 'Popup', 'wp-banner' ); ?></a>
                 <a href="?page=wp_docs" class="nav-tab <?php if( $active_tab == 'wp_docs' ) { echo 'nav-tab-active'; } ?>"><?php _e( 'Documentation', 'wp-banner' ); ?></a>
                 <a href="?page=wp_premium" class="nav-tab <?php if( $active_tab == 'wp_premium' ) { echo 'nav-tab-active'; } ?>"><?php _e( 'Upgrade to Premium', 'wp-banner' ); ?></a>
             </h2>
@@ -128,7 +130,31 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
                 <div id="icon-options-general" class="icon32"></div>
                 <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
-				<?php $this->is_active( 'wp_maintenance', 'wp_maintenance', 'wp_docs' ); ?>
+				<?php $this->is_active( 'wp_maintenance', 'wp_maintenance', 'wp_popup' ); ?>
+
+                <form action="options.php" method="post">
+
+					<?php
+					settings_fields( '' );
+					do_settings_sections( '' );
+
+					submit_button();
+					?>
+
+                </form>
+
+            </div>
+			<?php
+		}
+
+		public function wp_banner_popup()
+		{
+			?>
+            <div class="wrap">
+                <div id="icon-options-general" class="icon32"></div>
+                <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+				<?php $this->is_active( 'wp_popup', 'wp_popup', 'wp_docs' ); ?>
 
                 <form action="options.php" method="post">
 
