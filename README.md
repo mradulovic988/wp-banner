@@ -1,1 +1,1 @@
-WP Banner WordPress plugin
+* WP Banner WordPress plugin
