@@ -317,6 +317,8 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			$options = get_option( 'wp_banner_settings_fields' );
 			$is_options_empty = ( ! empty( $options[ 'templates' ] ) ? $options[ 'templates' ] : '' );
 
+			echo '<div class="wp_banner_template_wrapper">';
+
 			echo '<label class="wp_banner_template_label" for="first_template"><input class="wp_banner_template_input" type="radio" id="first_template" name="wp_banner_settings_fields[templates]" value="First"' . checked( 'First', $is_options_empty, false ) . '"/><br>';
 			echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/1.png', __FILE__ ) . '"></label><br>';
 
@@ -346,6 +348,8 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 
 			echo '<label class="wp_banner_template_label" for="ten_template"><input class="wp_banner_template_input" type="radio" id="ten_template" name="wp_banner_settings_fields[templates]" value="Ten"' . checked( 'Ten', $is_options_empty, false ) . '"/><br>';
 			echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/10.png', __FILE__ ) . '"></label><br>';
+
+			echo '</div>';
 		}
 
 	}
