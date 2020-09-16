@@ -8,6 +8,7 @@
  * Plugin Name:       WP Banner
  * Plugin URI:        https://wordpress.org/plugins/top-bar
  * Description:       Really simple plugin for Header Banner
+ * Donate link:       http://example.com/
  * Version:           1.0.0
  * Author:            Marko Radulovic
  * Author URI:        https://mlab-studio.com

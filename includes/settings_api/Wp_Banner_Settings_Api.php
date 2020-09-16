@@ -210,7 +210,6 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			add_settings_field( 'wp_banner_id_position', __( 'Banner Position', 'wp_banner' ), array( $this, 'wp_banner_field_position'), 'wp_banner_settings_sections', 'wp_banner_id' );
 			add_settings_field( 'wp_banner_id_exclude', __( 'Exclude Pages ( comma separated )', 'wp_banner' ), array( $this, 'wp_banner_field_exclude'), 'wp_banner_settings_sections', 'wp_banner_id' );
 			add_settings_field( 'wp_banner_id_templates', __( 'Choose Banner Template', 'wp_banner' ), array( $this, 'wp_banner_field_templates'), 'wp_banner_settings_sections', 'wp_banner_id' );
-
 		}
 
 		public function wp_banner_sanitize()
@@ -302,6 +301,15 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			$is_options_empty = ( ! empty( $options[ 'exclude' ] ) ? $options[ 'exclude' ] : '' );
 
 			echo '<input type="text" id="wp_banner_id_exclude" name="wp_banner_settings_fields[exclude]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="page-five, page-six">';
+		}
+
+		// Listing all of the pages -> Think about the edit slug comma separated
+		public function wp_banner_field_test()
+		{
+			$options = get_option( 'wp_banner_settings_fields' );
+			$is_options_empty = ( ! empty( $options[ 'test' ] ) ? $options[ 'test' ] : '' );
+
+			echo '<input type="text" id="wp_banner_id_test" name="wp_banner_settings_fields[test]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '">';
 		}
 
 		public function wp_banner_field_templates()
