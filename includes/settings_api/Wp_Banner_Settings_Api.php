@@ -227,15 +227,23 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			register_setting( 'wp_banner_settings_fields', 'wp_banner_settings_fields', 'wp_banner_sanitize' );
 			add_settings_section( 'wp_banner_id', __( 'WP Banner Management', 'wp_banner' ), array( $this, 'wp_banner_setting_section'), 'wp_banner_settings_sections' );
 
-			add_settings_field( 'wp_banner_id_turn_on', __( 'Enable/Disable banner', 'wp_banner' ), array( $this, 'wp_banner_field_turn_on' ), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_text', __( 'Banner Des', 'wp_banner' ), array( $this, 'wp_banner_field_text'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_font_size', __( 'Font Size ( in px )', 'wp_banner' ), array( $this, 'wp_banner_field_font_size'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_background_color', __( 'Background Color', 'wp_banner' ), array( $this, 'wp_banner_field_background_color'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_font_color', __( 'Font Color', 'wp_banner' ), array( $this, 'wp_banner_field_font_color'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_link_color', __( 'Link Color', 'wp_banner' ), array( $this, 'wp_banner_field_link_color'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_position', __( 'Banner Position', 'wp_banner' ), array( $this, 'wp_banner_field_position'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_exclude', __( 'Exclude Pages ( comma separated )', 'wp_banner' ), array( $this, 'wp_banner_field_exclude'), 'wp_banner_settings_sections', 'wp_banner_id' );
-			add_settings_field( 'wp_banner_id_templates', __( 'Choose Banner Template', 'wp_banner' ), array( $this, 'wp_banner_field_templates'), 'wp_banner_settings_sections', 'wp_banner_id' );
+			$wp_banner_class_managing = array( 'class' => 'wp_banner_class_managing' );
+			$wp_banner_class_customization = array( 'class' => 'wp_banner_class_customization' );
+			$wp_banner_class_templates = array( 'class' => 'wp_banner_class_templates' );
+
+			add_settings_field( 'wp_banner_id_turn_on', __( 'Enable/Disable banner', 'wp-banner' ), array( $this, 'wp_banner_field_turn_on' ), 'wp_banner_settings_sections', 'wp_banner_id' );
+			add_settings_field( 'wp_banner_id_style', __( 'Choose your styling', 'wp-banner' ), array( $this, 'wp_banner_field_style' ), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_managing );
+			add_settings_field( 'wp_banner_id_exclude', __( 'Exclude Pages ( comma separated )', 'wp-banner' ), array( $this, 'wp_banner_field_exclude'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_managing );
+			add_settings_field( 'wp_banner_id_position', __( 'Banner Position', 'wp-banner' ), array( $this, 'wp_banner_field_position'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_managing );
+			add_settings_field( 'wp_banner_id_html', __( 'Banner HTML', 'wp-banner' ), array( $this, 'wp_banner_field_html'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_customization );
+			add_settings_field( 'wp_banner_id_css', __( 'Banner CSS', 'wp-banner' ), array( $this, 'wp_banner_field_css'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_customization );
+			add_settings_field( 'wp_banner_id_font_size', __( 'Font Size ( in px )', 'wp-banner' ), array( $this, 'wp_banner_field_font_size'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_customization );
+			add_settings_field( 'wp_banner_id_background_color', __( 'Background Color', 'wp-banner' ), array( $this, 'wp_banner_field_background_color'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_customization );
+			add_settings_field( 'wp_banner_id_font_color', __( 'Font Color', 'wp-banner' ), array( $this, 'wp_banner_field_font_color'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_customization );
+			add_settings_field( 'wp_banner_id_link_color', __( 'Link Color', 'wp-banner' ), array( $this, 'wp_banner_field_link_color'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_customization );
+			add_settings_field( 'wp_banner_id_title', __( 'Banner Title', 'wp-banner' ), array( $this, 'wp_banner_field_title'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_templates );
+			add_settings_field( 'wp_banner_id_text', __( 'Banner Text', 'wp-banner' ), array( $this, 'wp_banner_field_text'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_templates );
+			add_settings_field( 'wp_banner_id_templates', __( 'Choose Banner Template', 'wp-banner' ), array( $this, 'wp_banner_field_templates'), 'wp_banner_settings_sections', 'wp_banner_id', $wp_banner_class_templates );
 		}
 
 		public function wp_banner_sanitize()
@@ -255,10 +263,70 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			$options = get_option( 'wp_banner_settings_fields' );
 			$is_options_empty = ( ! empty( $options[ 'turn_on' ] ) ? $options[ 'turn_on' ] : '' );
 
+			if ( ! $is_options_empty == 1 ) { ?>
+                <style>
+                    tr.wp_banner_class_managing, tr.wp_banner_class_customization, tr.wp_banner_class_templates { display: none; }
+                </style>
+            <?php }
+
 			echo '<label class="wp-banner-switch" for="wp_banner_id_turn_on">';
-			echo '<input type="checkbox" id="wp_banner_id_turn_on" class="wp-banner-switch-input wp-banner-field-size" name="wp_banner_settings_fields[turn_on]" value="1"' . checked( 1, $is_options_empty, false ) . '/>';
+			echo '<input type="checkbox" id="wp_banner_id_turn_on" class="wp-banner-switch-input wp-banner-field-size" name="wp_banner_settings_fields[turn_on]" value="1" ' . checked( 1, $is_options_empty, false ) . '/>';
 			echo '<span class="wp-banner-slider wp-banner-round"></span>';
 			echo '</label>';
+		}
+
+		// Turned on or off
+		public function wp_banner_field_style()
+		{
+			$options = get_option( 'wp_banner_settings_fields' );
+			$is_options_empty = ( ! empty( $options[ 'style' ] ) ? $options[ 'style' ] : '' );
+
+			if ( $is_options_empty == "none" ) { ?>
+                <style>
+                    tr.wp_banner_class_customization, tr.wp_banner_class_templates { display: none; }
+                </style>
+            <?php } elseif ( $is_options_empty == "customize" ) { ?>
+                <style>
+                    tr.wp_banner_class_templates { display: none; }
+                </style>
+			<?php } elseif ( $is_options_empty == "predefined" ) { ?>
+                <style>
+                    tr.wp_banner_class_customization { display: none; }
+                </style>
+            <?php }
+
+			echo '<label for="none"><input type="radio" id="none" name="wp_banner_settings_fields[style]" value="none"' . checked( 'none', $is_options_empty, false ) . '" checked/>' . __( 'None', 'wp-banner' ) . '</label><br>';
+
+			echo '<label for="customization"><input type="radio" id="customization" name="wp_banner_settings_fields[style]" value="customize"' . checked( 'customize', $is_options_empty, false ) . '"/>' . __( 'Customize on your own', 'wp-banner' ) . '</label><br>';
+
+			echo '<label for="predefined"><input type="radio" id="predefined" name="wp_banner_settings_fields[style]" value="predefined"' . checked( 'predefined', $is_options_empty, false ) . '"/>' . __( 'Predefined templates', 'wp-banner' ) . '</label><br>';
+		}
+
+		// Banner title field
+		public function wp_banner_field_title()
+		{
+			$options = get_option( 'wp_banner_settings_fields' );
+			$is_options_empty = ( ! empty( $options[ 'title' ] ) ? $options[ 'title' ] : '' );
+
+			echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[title]" placeholder="' . __( 'Add banner title', 'wp_banner' ) . '" rows="3" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+		}
+
+		// Banner HTML field
+		public function wp_banner_field_html()
+		{
+			$options = get_option( 'wp_banner_settings_fields' );
+			$is_options_empty = ( ! empty( $options[ 'html' ] ) ? $options[ 'html' ] : '' );
+
+			echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[html]" placeholder="' . __( '<p class=\'class\'>This is a paragraph</p>', 'wp_banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+		}
+
+		// Banner title field
+		public function wp_banner_field_css()
+		{
+			$options = get_option( 'wp_banner_settings_fields' );
+			$is_options_empty = ( ! empty( $options[ 'css' ] ) ? $options[ 'css' ] : '' );
+
+			echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[css]" placeholder="' . __( '.class { color: #000; }', 'wp_banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
 		}
 
 		// Banner text field
@@ -267,7 +335,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			$options = get_option( 'wp_banner_settings_fields' );
 			$is_options_empty = ( ! empty( $options[ 'text' ] ) ? $options[ 'text' ] : '' );
 
-			echo '<textarea id="wp_banner_id_text" name="wp_banner_settings_fields[text]" placeholder="' . __( 'My cool description for the banner', 'wp_banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+			echo '<textarea id="wp_banner_id_text" name="wp_banner_settings_fields[text]" placeholder="' . __( 'Add banner description', 'wp_banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
 		}
 
 		// Banner font size field
