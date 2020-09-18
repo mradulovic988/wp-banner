@@ -58,7 +58,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 
         add_settings_section(
             'wp_banner_id',
-            __( 'WP Banner Management', 'wp_banner' ),
+            __( 'WP Banner Management', '' ),
             array( $this, 'wp_banner_setting_section'),
             'wp_banner_settings_sections'
         );
@@ -180,7 +180,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         );
     }
 
-    public function wp_banner_sanitize()
+    public function wp_banner_sanitize( $input )
     {
         // do the sanitization
     }
@@ -188,7 +188,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     // Banner description message
     public function wp_banner_setting_section()
     {
-        _e( 'Here you can customize your banner for the front-end part of the website.', 'wp_banner' );
+        _e( 'Here you can customize your banner for the front-end part of the website.', 'wp-banner' );
     }
 
     // Turned on or off
@@ -245,7 +245,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<textarea 
                 id="wp_banner_id_title" 
                 name="wp_banner_settings_fields[title]" 
-                placeholder="' . __( 'Add banner title', 'wp_banner' ) . '" 
+                placeholder="' . __( 'Add banner title', 'wp-banner' ) . '" 
                 rows="3" cols="100">
                 ' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '
             </textarea>';
@@ -260,7 +260,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<textarea 
                 id="wp_banner_id_title" 
                 name="wp_banner_settings_fields[html]" 
-                placeholder="' . __( '<p class=\'class\'>This is a paragraph</p>', 'wp_banner' ) . '" 
+                placeholder="' . __( '<p class=\'class\'>This is a paragraph</p>', 'wp-banner' ) . '" 
                 rows="10" cols="100">
                 ' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '
             </textarea>';
@@ -272,7 +272,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'css' ] ) ? $options[ 'css' ] : '' );
 
-        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[css]" placeholder="' . __( '.class { color: #000; }', 'wp_banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[css]" placeholder="' . __( '.class { color: #000; }', 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
     }
 
     // Banner text field
@@ -281,7 +281,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'text' ] ) ? $options[ 'text' ] : '' );
 
-        echo '<textarea id="wp_banner_id_text" name="wp_banner_settings_fields[text]" placeholder="' . __( 'Add banner description', 'wp_banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+        echo '<textarea id="wp_banner_id_text" name="wp_banner_settings_fields[text]" placeholder="' . __( 'Add banner description', 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
     }
 
     // Banner font size field
@@ -326,12 +326,12 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'position' ] ) ? $options[ 'position' ] : '' );
 
-        echo '<label for="wp_banner_position_top"><input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>' . __( 'Top', 'wp_banner') . '</label><br>';
-        echo '<label for="wp_banner_position_center"><input type="radio" id="wp_banner_position_center" name="wp_banner_settings_fields[position]" value="Center"' . checked( 'Center', $is_options_empty, false ) . '"/>' . __( 'Center', 'wp_banner') . '</label><br>';
-        echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp_banner') . '</label><br>';
-        echo '<label for="wp_banner_position_popup"><input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>' . __( 'Popup', 'wp_banner') . '</label><br>';
-        echo '<label for="wp_banner_position_fixed"><input type="radio" id="wp_banner_position_fixed" name="wp_banner_settings_fields[position]" value="Fixed"' . checked( 'Fixed', $is_options_empty, false ) . '"/>' . __( 'Fixed', 'wp_banner') . '</label><br>';
-        echo '<label for="wp_banner_position_sticky"><input type="radio" id="wp_banner_position_sticky" name="wp_banner_settings_fields[position]" value="Sticky"' . checked( 'Sticky', $is_options_empty, false ) . '"/>' . __( 'Sticky', 'wp_banner') . '</label><br>';
+        echo '<label for="wp_banner_position_top"><input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>' . __( 'Top', 'wp-banner') . '</label><br>';
+        echo '<label for="wp_banner_position_center"><input type="radio" id="wp_banner_position_center" name="wp_banner_settings_fields[position]" value="Center"' . checked( 'Center', $is_options_empty, false ) . '"/>' . __( 'Center', 'wp-banner') . '</label><br>';
+        echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp-banner') . '</label><br>';
+        echo '<label for="wp_banner_position_popup"><input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>' . __( 'Popup', 'wp-banner') . '</label><br>';
+        echo '<label for="wp_banner_position_fixed"><input type="radio" id="wp_banner_position_fixed" name="wp_banner_settings_fields[position]" value="Fixed"' . checked( 'Fixed', $is_options_empty, false ) . '"/>' . __( 'Fixed', 'wp-banner') . '</label><br>';
+        echo '<label for="wp_banner_position_sticky"><input type="radio" id="wp_banner_position_sticky" name="wp_banner_settings_fields[position]" value="Sticky"' . checked( 'Sticky', $is_options_empty, false ) . '"/>' . __( 'Sticky', 'wp-banner') . '</label><br>';
     }
 
     // Listing all of the pages -> Think about the edit slug comma separated
