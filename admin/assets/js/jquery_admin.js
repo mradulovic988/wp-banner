@@ -1,21 +1,22 @@
-jQuery(document).click(function() {
+jQuery(document).ready(function( $ ) {
+    $(document).click(function() {
 
-    if (jQuery("input#customization").is(':checked')) {
-        jQuery("tr.wp_banner_class_templates").hide();
-        jQuery("tr.wp_banner_class_customization").show();
+        if ($("input#customization").is(':checked')) {
+            $("tr.wp_banner_class_templates").hide();
+            $("tr.wp_banner_class_customization").show();
 
-    } else if (jQuery("input#predefined").is(':checked')) {
+        } else if ($("input#predefined").is(':checked')) {
 
-        jQuery("tr.wp_banner_class_templates").show();
-        jQuery("tr.wp_banner_class_customization").hide();
-    } else {
+            $("tr.wp_banner_class_templates").show();
+            $("tr.wp_banner_class_customization").hide();
+        } else {
 
-        jQuery("tr.wp_banner_class_templates").hide();
-        jQuery("tr.wp_banner_class_customization").hide();
-    }
+            $("tr.wp_banner_class_templates").hide();
+            $("tr.wp_banner_class_customization").hide();
+        }
 
-    jQuery("input#wp_banner_id_turn_on").click(function (){
-        jQuery("tr.wp_banner_class_managing").toggle();
-    })
-
+        $("input#wp_banner_id_turn_on").click(function (){
+            $("tr.wp_banner_class_managing").toggle();
+        })
+    });
 });
