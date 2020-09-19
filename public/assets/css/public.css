@@ -1,0 +1,399 @@
+/* Template First Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_first,
+.wp_banner_wrapper_bottom.wp_banner_first {
+    background: #ffa8b6;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_first,
+p.wp_banner_title_bottom.wp_banner_first,
+p.wp_banner_desc_top.wp_banner_first,
+p.wp_banner_desc_bottom.wp_banner_first {
+    margin-top: 10px;
+    color: #210E06;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_first,
+.wp_banner_wrapper_title_bottom.wp_banner_first {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_first,
+.wp_banner_wrapper_desc_bottom.wp_banner_first {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_first,
+p.wp_banner_title_bottom.wp_banner_first {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_first,
+.wp_banner_wrapper_desc_bottom.wp_banner_first {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template First Position Top and Bottom */
+
+/* Template Second Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_second,
+.wp_banner_wrapper_bottom.wp_banner_second {
+    background: #A0D2EB;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_second,
+p.wp_banner_title_bottom.wp_banner_second,
+p.wp_banner_desc_top.wp_banner_second,
+p.wp_banner_desc_bottom.wp_banner_second {
+    margin-top: 10px;
+    color: #DFE8F3;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_second,
+.wp_banner_wrapper_title_bottom.wp_banner_second {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_second,
+.wp_banner_wrapper_desc_bottom.wp_banner_second {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_second,
+p.wp_banner_title_bottom.wp_banner_second {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_second,
+.wp_banner_wrapper_desc_bottom.wp_banner_second {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Second Position Top and Bottom */
+
+/* Template Third Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_third,
+.wp_banner_wrapper_bottom.wp_banner_third {
+    background: #FF1D58;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_third,
+p.wp_banner_title_bottom.wp_banner_third,
+p.wp_banner_desc_top.wp_banner_third,
+p.wp_banner_desc_bottom.wp_banner_third {
+    margin-top: 10px;
+    color: #FFA46A;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_third,
+.wp_banner_wrapper_title_bottom.wp_banner_third {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_third,
+.wp_banner_wrapper_desc_bottom.wp_banner_third {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_third,
+p.wp_banner_title_bottom.wp_banner_third {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_third,
+.wp_banner_wrapper_desc_bottom.wp_banner_third {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Third Position Top and Bottom */
+
+/* Template Fourth Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_four,
+.wp_banner_wrapper_bottom.wp_banner_four {
+    background: #F43A09;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_four,
+p.wp_banner_title_bottom.wp_banner_four,
+p.wp_banner_desc_top.wp_banner_four,
+p.wp_banner_desc_bottom.wp_banner_four {
+    margin-top: 10px;
+    color: #919F40;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_four,
+.wp_banner_wrapper_title_bottom.wp_banner_four {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_four,
+.wp_banner_wrapper_desc_bottom.wp_banner_four {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_four,
+p.wp_banner_title_bottom.wp_banner_four {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_four,
+.wp_banner_wrapper_desc_bottom.wp_banner_four {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Fourth Position Top and Bottom */
+
+/* Template Five Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_five,
+.wp_banner_wrapper_bottom.wp_banner_five {
+    background: #FBE3E8;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_five,
+p.wp_banner_title_bottom.wp_banner_five,
+p.wp_banner_desc_top.wp_banner_five,
+p.wp_banner_desc_bottom.wp_banner_five {
+    margin-top: 10px;
+    color: #B5C9C0;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_five,
+.wp_banner_wrapper_title_bottom.wp_banner_five {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_five,
+.wp_banner_wrapper_desc_bottom.wp_banner_five {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_five,
+p.wp_banner_title_bottom.wp_banner_five {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_five,
+.wp_banner_wrapper_desc_bottom.wp_banner_five {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Five Position Top and Bottom */
+
+/* Template Six Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_six,
+.wp_banner_wrapper_bottom.wp_banner_six {
+    background: #FCEED1;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_six,
+p.wp_banner_title_bottom.wp_banner_six,
+p.wp_banner_desc_top.wp_banner_six,
+p.wp_banner_desc_bottom.wp_banner_six {
+    margin-top: 10px;
+    color: #8C4FFC;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_six,
+.wp_banner_wrapper_title_bottom.wp_banner_six {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_six,
+.wp_banner_wrapper_desc_bottom.wp_banner_six {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_six,
+p.wp_banner_title_bottom.wp_banner_six {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_six,
+.wp_banner_wrapper_desc_bottom.wp_banner_six {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Six Position Top and Bottom */
+
+/* Template Seven Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_seven,
+.wp_banner_wrapper_bottom.wp_banner_seven {
+    background: #C89666;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_seven,
+p.wp_banner_title_bottom.wp_banner_seven,
+p.wp_banner_desc_top.wp_banner_seven,
+p.wp_banner_desc_bottom.wp_banner_seven {
+    margin-top: 10px;
+    color: #f8fdfb;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_seven,
+.wp_banner_wrapper_title_bottom.wp_banner_seven {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_seven,
+.wp_banner_wrapper_desc_bottom.wp_banner_seven {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_seven,
+p.wp_banner_title_bottom.wp_banner_seven {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_seven,
+.wp_banner_wrapper_desc_bottom.wp_banner_seven {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Seven Position Top and Bottom */
+
+/* Template Eight Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_eight,
+.wp_banner_wrapper_bottom.wp_banner_eight {
+    background: #18181E;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_eight,
+p.wp_banner_title_bottom.wp_banner_eight,
+p.wp_banner_desc_top.wp_banner_eight,
+p.wp_banner_desc_bottom.wp_banner_eight {
+    margin-top: 10px;
+    color: #D5BD8D;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_eight,
+.wp_banner_wrapper_title_bottom.wp_banner_eight {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_eight,
+.wp_banner_wrapper_desc_bottom.wp_banner_eight {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_eight,
+p.wp_banner_title_bottom.wp_banner_eight {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_eight,
+.wp_banner_wrapper_desc_bottom.wp_banner_eight {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Eight Position Top and Bottom */
+
+/* Template Nine Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_nine,
+.wp_banner_wrapper_bottom.wp_banner_nine {
+    background: #F7F7F7;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_nine,
+p.wp_banner_title_bottom.wp_banner_nine,
+p.wp_banner_desc_top.wp_banner_nine,
+p.wp_banner_desc_bottom.wp_banner_nine {
+    margin-top: 10px;
+    color: #8DA2AC;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_nine,
+.wp_banner_wrapper_title_bottom.wp_banner_nine {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_nine,
+.wp_banner_wrapper_desc_bottom.wp_banner_nine {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_nine,
+p.wp_banner_title_bottom.wp_banner_nine {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_nine,
+.wp_banner_wrapper_desc_bottom.wp_banner_nine {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Nine Position Top and Bottom */
+
+/* Template Ten Position Top and Bottom */
+.wp_banner_wrapper_top.wp_banner_ten,
+.wp_banner_wrapper_bottom.wp_banner_ten {
+    background: #051622;
+    padding: 10px;
+}
+
+p.wp_banner_title_top.wp_banner_ten,
+p.wp_banner_title_bottom.wp_banner_ten,
+p.wp_banner_desc_top.wp_banner_ten,
+p.wp_banner_desc_bottom.wp_banner_ten {
+    margin-top: 10px;
+    color: #1BA098;
+}
+
+.wp_banner_wrapper_title_top.wp_banner_ten,
+.wp_banner_wrapper_title_bottom.wp_banner_ten {
+    text-align: center;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_ten,
+.wp_banner_wrapper_desc_bottom.wp_banner_ten {
+    text-align: center;
+}
+
+p.wp_banner_title_top.wp_banner_ten,
+p.wp_banner_title_bottom.wp_banner_ten {
+    font-size: 21px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.wp_banner_wrapper_desc_top.wp_banner_ten,
+.wp_banner_wrapper_desc_bottom.wp_banner_ten {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+/* End Template Ten Position Top and Bottom */

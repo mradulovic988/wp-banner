@@ -41,6 +41,9 @@
 		        include WP_BANNER_PLUGIN_PATH . '/admin/Wp_Banner_Admin.php';
 
 		        $this->load_plugin_textdomain();
+
+	        } else {
+		        include WP_BANNER_PLUGIN_PATH . '/public/Wp_Banner_Public.php';
 	        }
         }
 
