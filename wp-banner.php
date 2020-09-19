@@ -36,9 +36,17 @@
 	        /**
 	         * Including all major files for the WP Banner plugin
 	         */
-	        include WP_BANNER_PLUGIN_PATH . '/includes/settings_api/Wp_Banner_Settings_Api.php';
-	        include WP_BANNER_PLUGIN_PATH . '/admin/Wp_Banner_Admin.php';
+	        if ( is_admin() ) {
+		        include WP_BANNER_PLUGIN_PATH . '/includes/settings_api/Wp_Banner_Settings_Api.php';
+		        include WP_BANNER_PLUGIN_PATH . '/admin/Wp_Banner_Admin.php';
+
+		        $this->load_plugin_textdomain();
+	        }
         }
+
+	    public function load_plugin_textdomain() {
+		    load_plugin_textdomain( 'wp-banner', false, WP_BANNER_PLUGIN_BASENAME . dirname( __FILE__ ) . '/languages' );
+	    }
 
     }
 
