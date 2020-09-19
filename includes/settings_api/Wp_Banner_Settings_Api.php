@@ -15,6 +15,9 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 
 		public function __construct()
 		{
+			/**
+			 * Including all of the pages for the Settings API
+			 */
 			include WP_BANNER_PLUGIN_PATH . '/includes/settings_api_pages/Wp_Banner_Page_Banner.php';
 
 			// Error notice for submiting results

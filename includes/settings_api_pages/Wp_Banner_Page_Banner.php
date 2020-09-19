@@ -12,6 +12,13 @@
 
 class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 
+	/**
+     * Used argument for add_settings_field to conditionally add a CSS class
+     *
+	 * @var string[] $wp_banner_class_managing Adding a CSS class for manage part on the page
+     * @var string[] $wp_banner_class_customization Adding a CSS class for customization part on the page
+     * @var string[] $wp_banner_class_templates Adding a CSS class for templates part on the page
+	 */
     protected $wp_banner_class_managing = array( 'class' => 'wp_banner_class_managing' );
     protected $wp_banner_class_customization = array( 'class' => 'wp_banner_class_customization' );
     protected $wp_banner_class_templates = array( 'class' => 'wp_banner_class_templates' );
@@ -209,25 +216,51 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '</label>';
     }
 
+	/**
+     * Checking the condition and add a CSS styles
+     *
+	 * @param string $option_name Name of the Setting Option
+	 * @param string $option_args Arguments for the styling for the Settings Option
+	 * @param string $option_style CSS style
+	 *
+	 * @return string
+	 */
+    protected function set_css_class( $option_name, $option_args, $option_style )
+    {
+        if ( $option_name == $option_args ) {
+            echo '<style>' . $option_style . '</style>';
+        }
+    }
+
     // Turned on or off
     public function wp_banner_field_style()
     {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'style' ] ) ? $options[ 'style' ] : '' );
 
-        if ( $is_options_empty == "none" ) { ?>
-            <style>
-                tr.wp_banner_class_customization, tr.wp_banner_class_templates { display: none; }
-            </style>
-        <?php } elseif ( $is_options_empty == "customize" ) { ?>
-            <style>
-                tr.wp_banner_class_templates { display: none; }
-            </style>
-        <?php } elseif ( $is_options_empty == "predefined" ) { ?>
-            <style>
-                tr.wp_banner_class_customization { display: none; }
-            </style>
-        <?php }
+	    /**
+	     * Adding conditional CSS styling
+         *
+         * @method protected string set_css_class()
+	     */
+        $this->set_css_class(
+            $is_options_empty,
+            'none',
+            'tr.wp_banner_class_customization, tr.wp_banner_class_templates { display: none; }'
+        );
+
+        $this->set_css_class(
+            $is_options_empty,
+            'customize',
+            'tr.wp_banner_class_templates { display: none; }'
+        );
+
+        $this->set_css_class(
+            $is_options_empty,
+            'predefined',
+            'tr.wp_banner_class_customization { display: none; }'
+        );
+
 
         echo '<label for="none"><input type="radio" id="none" name="wp_banner_settings_fields[style]" value="none"' . checked( 'none', $is_options_empty, false ) . '" checked/>' . __( 'None', 'wp-banner' ) . '</label><br>';
 
@@ -242,13 +275,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'title' ] ) ? $options[ 'title' ] : '' );
 
-        echo '<textarea 
-                id="wp_banner_id_title" 
-                name="wp_banner_settings_fields[title]" 
-                placeholder="' . __( 'Add banner title', 'wp-banner' ) . '" 
-                rows="3" cols="100">
-                ' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '
-            </textarea>';
+        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[title]" placeholder="' . __( 'Add banner title', 'wp-banner' ) . '" rows="3" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
     }
 
     // Banner HTML field
@@ -257,13 +284,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'html' ] ) ? $options[ 'html' ] : '' );
 
-        echo '<textarea 
-                id="wp_banner_id_title" 
-                name="wp_banner_settings_fields[html]" 
-                placeholder="' . __( '<p class=\'class\'>This is a paragraph</p>', 'wp-banner' ) . '" 
-                rows="10" cols="100">
-                ' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '
-            </textarea>';
+        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[html]" placeholder="' . __( '<p class=\'class\'>This is a paragraph</p>', 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
     }
 
     // Banner title field
@@ -327,10 +348,15 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $is_options_empty = ( ! empty( $options[ 'position' ] ) ? $options[ 'position' ] : '' );
 
         echo '<label for="wp_banner_position_top"><input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>' . __( 'Top', 'wp-banner') . '</label><br>';
+
         echo '<label for="wp_banner_position_center"><input type="radio" id="wp_banner_position_center" name="wp_banner_settings_fields[position]" value="Center"' . checked( 'Center', $is_options_empty, false ) . '"/>' . __( 'Center', 'wp-banner') . '</label><br>';
+
         echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp-banner') . '</label><br>';
+
         echo '<label for="wp_banner_position_popup"><input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>' . __( 'Popup', 'wp-banner') . '</label><br>';
+
         echo '<label for="wp_banner_position_fixed"><input type="radio" id="wp_banner_position_fixed" name="wp_banner_settings_fields[position]" value="Fixed"' . checked( 'Fixed', $is_options_empty, false ) . '"/>' . __( 'Fixed', 'wp-banner') . '</label><br>';
+
         echo '<label for="wp_banner_position_sticky"><input type="radio" id="wp_banner_position_sticky" name="wp_banner_settings_fields[position]" value="Sticky"' . checked( 'Sticky', $is_options_empty, false ) . '"/>' . __( 'Sticky', 'wp-banner') . '</label><br>';
     }
 
@@ -360,6 +386,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<div class="wp_banner_template_wrapper">';
 
         echo '<label class="wp_banner_template_label" for="first_template"><input class="wp_banner_template_input" type="radio" id="first_template" name="wp_banner_settings_fields[templates]" value="First"' . checked( 'First', $is_options_empty, false ) . '"/><br>';
+
         echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/1.png', __FILE__ ) . '"></label><br>';
 
         echo '<label class="wp_banner_template_label" for="second_template"><input class="wp_banner_template_input" type="radio" id="second_template" name="wp_banner_settings_fields[templates]" value="Second"' . checked( 'Second', $is_options_empty, false ) . '"/><br>';
