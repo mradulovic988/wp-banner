@@ -19,7 +19,7 @@ if ( ! class_exists( 'Wp_Banner_Public' ) ) {
 
 			if ( $options_position == 'top' ) {
 				add_action( 'wp_head', array( $this, 'include_predefined_templates' ) );
-			} elseif ( $options_position == 'bottom' ) {
+			} else {
 				add_action( 'wp_footer', array( $this, 'include_predefined_templates' ) );
 			}
 		}
