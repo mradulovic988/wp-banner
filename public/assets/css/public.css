@@ -1,4 +1,8 @@
 /* Template First Position Top and Bottom */
+span.wp_banner_close_template_first {
+    color: #210E06;
+}
+
 .wp_banner_wrapper_top.wp_banner_first,
 .wp_banner_wrapper_bottom.wp_banner_first {
     background: #ffa8b6;
@@ -39,6 +43,10 @@ p.wp_banner_title_bottom.wp_banner_first {
 /* End Template First Position Top and Bottom */
 
 /* Template Second Position Top and Bottom */
+span.wp_banner_close_template_second {
+    color: #DFE8F3;
+}
+
 .wp_banner_wrapper_top.wp_banner_second,
 .wp_banner_wrapper_bottom.wp_banner_second {
     background: #A0D2EB;
@@ -79,6 +87,10 @@ p.wp_banner_title_bottom.wp_banner_second {
 /* End Template Second Position Top and Bottom */
 
 /* Template Third Position Top and Bottom */
+span.wp_banner_close_template_third {
+    color: #FFA46A;
+}
+
 .wp_banner_wrapper_top.wp_banner_third,
 .wp_banner_wrapper_bottom.wp_banner_third {
     background: #FF1D58;
@@ -119,9 +131,13 @@ p.wp_banner_title_bottom.wp_banner_third {
 /* End Template Third Position Top and Bottom */
 
 /* Template Fourth Position Top and Bottom */
+span.wp_banner_close_template_four {
+    color: #FFA46A;
+}
+
 .wp_banner_wrapper_top.wp_banner_four,
 .wp_banner_wrapper_bottom.wp_banner_four {
-    background: #F43A09;
+    background: #919F40;
     padding: 10px;
 }
 
@@ -159,6 +175,10 @@ p.wp_banner_title_bottom.wp_banner_four {
 /* End Template Fourth Position Top and Bottom */
 
 /* Template Five Position Top and Bottom */
+span.wp_banner_close_template_five {
+    color: #B5C9C0;
+}
+
 .wp_banner_wrapper_top.wp_banner_five,
 .wp_banner_wrapper_bottom.wp_banner_five {
     background: #FBE3E8;
@@ -199,6 +219,10 @@ p.wp_banner_title_bottom.wp_banner_five {
 /* End Template Five Position Top and Bottom */
 
 /* Template Six Position Top and Bottom */
+span.wp_banner_close_template_six {
+    color: #8C4FFC;
+}
+
 .wp_banner_wrapper_top.wp_banner_six,
 .wp_banner_wrapper_bottom.wp_banner_six {
     background: #FCEED1;
@@ -239,6 +263,10 @@ p.wp_banner_title_bottom.wp_banner_six {
 /* End Template Six Position Top and Bottom */
 
 /* Template Seven Position Top and Bottom */
+span.wp_banner_close_template_seven {
+    color: #f8fdfb;
+}
+
 .wp_banner_wrapper_top.wp_banner_seven,
 .wp_banner_wrapper_bottom.wp_banner_seven {
     background: #C89666;
@@ -279,6 +307,10 @@ p.wp_banner_title_bottom.wp_banner_seven {
 /* End Template Seven Position Top and Bottom */
 
 /* Template Eight Position Top and Bottom */
+span.wp_banner_close_template_eight {
+    color: #D5BD8D;
+}
+
 .wp_banner_wrapper_top.wp_banner_eight,
 .wp_banner_wrapper_bottom.wp_banner_eight {
     background: #18181E;
@@ -319,6 +351,10 @@ p.wp_banner_title_bottom.wp_banner_eight {
 /* End Template Eight Position Top and Bottom */
 
 /* Template Nine Position Top and Bottom */
+span.wp_banner_close_template_nine {
+    color: #8DA2AC;
+}
+
 .wp_banner_wrapper_top.wp_banner_nine,
 .wp_banner_wrapper_bottom.wp_banner_nine {
     background: #F7F7F7;
@@ -359,6 +395,10 @@ p.wp_banner_title_bottom.wp_banner_nine {
 /* End Template Nine Position Top and Bottom */
 
 /* Template Ten Position Top and Bottom */
+span.wp_banner_close_template_ten {
+    color: #1BA098;
+}
+
 .wp_banner_wrapper_top.wp_banner_ten,
 .wp_banner_wrapper_bottom.wp_banner_ten {
     background: #051622;
@@ -397,3 +437,10 @@ p.wp_banner_title_bottom.wp_banner_ten {
     font-size: 16px;
 }
 /* End Template Ten Position Top and Bottom */
+
+span.wp_banner_close_btn_top {
+    position: absolute;
+    left: 98%;
+    cursor: pointer;
+    font-size: 19px;
+}

@@ -91,6 +91,15 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         );
 
 	    add_settings_field(
+		    'wp_banner_id_close_btn',
+		    __( 'Use Close button', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_close_btn' ),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_templates
+	    );
+
+	    add_settings_field(
 		    'wp_banner_id_exclude',
 		    __( 'Exclude Pages', 'wp-banner' ) . '<span class="wp_banner_small_alert">' . __( ' - comma separated', 'wp-banner' ) . '</span>',
 		    array( $this, 'wp_banner_field_exclude'),
@@ -276,6 +285,17 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 
         echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp-banner') . '</label><br>';
     }
+
+	// Banner close button field
+	public function wp_banner_field_close_btn()
+	{
+		$options = get_option( 'wp_banner_settings_fields' );
+		$is_options_empty = ( ! empty( $options[ 'close_btn' ] ) ? $options[ 'close_btn' ] : '' );
+
+		echo '<label for="wp_banner_close_btn_yes"><input type="radio" id="wp_banner_close_btn_yes" name="wp_banner_settings_fields[close_btn]" value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>' . __( 'Yes', 'wp-banner') . '</label><br>';
+
+		echo '<label for="wp_banner_close_btn_no"><input type="radio" id="wp_banner_close_btn_no" name="wp_banner_settings_fields[close_btn]" value="No"' . checked( 'No', $is_options_empty, false ) . '"/>' . __( 'No', 'wp-banner') . '</label><br>';
+	}
 
     // Listing all of the pages -> Think about the edit slug comma separated
     public function wp_banner_field_exclude()
