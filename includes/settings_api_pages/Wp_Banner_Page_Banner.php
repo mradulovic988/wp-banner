@@ -96,7 +96,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 		    array( $this, 'wp_banner_field_debug_mode' ),
 		    'wp_banner_settings_sections',
 		    'wp_banner_id',
-		    $this->wp_banner_class_managing
+		    $this->wp_banner_class_templates
 	    );
 
 	    add_settings_field(

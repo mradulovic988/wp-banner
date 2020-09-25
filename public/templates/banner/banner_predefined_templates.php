@@ -14,10 +14,12 @@ $options_templates = strtolower( $options[ 'templates' ] );
 $options_close_btn = strtolower( $options[ 'close_btn' ] );
 $debug_mode = strtolower( $options[ 'debug_mode' ] );
 $debug_mode_enable = ( $debug_mode == 'enable' ) ? '' : 'onclick="setCookie()"';
-$options_exclude_pages = explode( ', ', $options['exclude'] );
+$options_exclude_pages = explode( ', ', $options[ 'exclude' ] );
 $is_the_btn_clicked = ( $options_close_btn == 'yes' ) ? '<span ' . $debug_mode_enable . ' id="wp_banner_close_btn_wrapper" class="wp_banner_close_btn_' . $options_position . ' wp_banner_close_template_' . $options_templates . '">&times;</span>' : '';
 
-if( $options['style'] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) ) { ?>
+if ( $options[ 'debug_mode' ] == 'enable' ) unset( $_COOKIE['wp_banner_closed_template'] );
+
+if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) ) { ?>
 
 	<div class="wp_banner_wrapper_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
 
