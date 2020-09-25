@@ -91,6 +91,15 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         );
 
 	    add_settings_field(
+		    'wp_banner_id_exclude',
+		    __( 'Exclude Pages', 'wp-banner' ) . '<span class="wp_banner_small_alert">' . __( ' - comma separated', 'wp-banner' ) . '</span>',
+		    array( $this, 'wp_banner_field_exclude'),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_managing
+	    );
+
+	    add_settings_field(
 		    'wp_banner_id_debug_mode',
 		    __( 'Debug Mode', 'wp-banner' ),
 		    array( $this, 'wp_banner_field_debug_mode' ),
@@ -106,15 +115,6 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 		    'wp_banner_settings_sections',
 		    'wp_banner_id',
 		    $this->wp_banner_class_templates
-	    );
-
-	    add_settings_field(
-		    'wp_banner_id_exclude',
-		    __( 'Exclude Pages', 'wp-banner' ) . '<span class="wp_banner_small_alert">' . __( ' - comma separated', 'wp-banner' ) . '</span>',
-		    array( $this, 'wp_banner_field_exclude'),
-		    'wp_banner_settings_sections',
-		    'wp_banner_id',
-		    $this->wp_banner_class_managing
 	    );
 
         add_settings_field(
@@ -184,7 +184,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     // Banner description message
     public function wp_banner_setting_section()
     {
-        _e( 'You can customize the banner for the website', 'wp-banner' );
+        _e( 'Here you can manage all of your styling for the banner itself, such as customization, choosing predefined templates, writing CSS and HTML, etc.', 'wp-banner' );
     }
 
 	/**
