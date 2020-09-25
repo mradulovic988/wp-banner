@@ -65,6 +65,8 @@ input:checked + .wp-banner-slider:before {
 input.wp_banner_template_input:checked ~ img.wp_banner_template_img {
     opacity: 1;
     filter: none;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 0, 0, .5);
 }
 
 label.wp_banner_template_label, img.wp_banner_template_img {
@@ -79,6 +81,9 @@ label.wp_banner_template_label, input.wp_banner_template_input[type=radio] {
 img.wp_banner_template_img {
     opacity: .5;
     -webkit-filter: blur(3px);
+    border: 2px solid #000;
+    border-radius: 3px;
+    padding: 3px;
     filter: blur(2px);
     object-fit: cover;
     width: 100%;
@@ -93,6 +98,9 @@ img.wp_banner_template_img {
 img.wp_banner_template_img:hover {
     opacity: 1;
     filter: none;
+    border: 2px solid rgba(0, 0, 0, .5);
+    border-radius: 3px;
+    padding: 3px;
     -webkit-transition: all .1s ease;
     -moz-transition: all .1s ease;
     -ms-transition: all .1s ease;
@@ -108,4 +116,24 @@ span.wp_banner_small_alert {
     font-size: 11px;
     font-style: italic;
     font-weight: 500;
+}
+
+.wp_banner_template_wrapper {
+    display: inline-flex;
+}
+
+.wp_banner_template_left {
+    width: 49%;
+    padding: 0 10px 0 0;
+}
+
+.wp_banner_template_right {
+    width: 49%;
+    padding: 0 0 0 10px;
+}
+
+img.wp_banner_template_coming_soon {
+    width: 100%;
+    opacity: .8;
+    border-radius: 20px;
 }

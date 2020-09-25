@@ -91,6 +91,15 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         );
 
 	    add_settings_field(
+		    'wp_banner_id_debug_mode',
+		    __( 'Debug Mode', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_debug_mode' ),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_managing
+	    );
+
+	    add_settings_field(
 		    'wp_banner_id_close_btn',
 		    __( 'Use Close button', 'wp-banner' ),
 		    array( $this, 'wp_banner_field_close_btn' ),
@@ -146,7 +155,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 
         add_settings_field(
             'wp_banner_id_templates',
-            __( 'Choose Banner Template *', 'wp-banner' ),
+            __( 'Choose Banner Template', 'wp-banner' ),
             array( $this, 'wp_banner_field_templates'),
             'wp_banner_settings_sections',
             'wp_banner_id',
@@ -286,6 +295,19 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp-banner') . '</label><br>';
     }
 
+    // Banner debug mode field
+    public function wp_banner_field_debug_mode()
+    {
+        $options = get_option( 'wp_banner_settings_fields' );
+        $is_options_empty = ( ! empty( $options[ 'debug_mode' ] ) ? $options[ 'debug_mode' ] : '' );
+
+//        echo '<pre>', var_dump($options), '</pre>';
+
+        echo '<label for="wp_banner_debug_mode_on"><input type="radio" id="wp_banner_debug_mode_on" name="wp_banner_settings_fields[debug_mode]" value="enable"' . checked( 'enable', $is_options_empty, false ) . '"/>' . __( 'Enable', 'wp-banner') . '<span class="wp_banner_small_alert">' . __( ' - While this option is enabled, cookies will not be set so you can test your banner. Don\'t forget to disable it.', 'wp-banner' ) . '</span></label><br>';
+
+        echo '<label for="wp_banner_debug_mode_off"><input type="radio" id="wp_banner_debug_mode_off" name="wp_banner_settings_fields[debug_mode]" value="disable"' . checked( 'disable', $is_options_empty, false ) . '"/>' . __( 'Disable', 'wp-banner') . '</label><br>';
+    }
+
 	// Banner close button field
 	public function wp_banner_field_close_btn()
 	{
@@ -312,6 +334,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $is_options_empty = ( ! empty( $options[ 'templates' ] ) ? $options[ 'templates' ] : '' );
 
         echo '<div class="wp_banner_template_wrapper">';
+        echo '<div class="wp_banner_template_left">';
 
         echo '<label class="wp_banner_template_label" for="first_template"><input class="wp_banner_template_input" type="radio" id="first_template" name="wp_banner_settings_fields[templates]" value="First"' . checked( 'First', $is_options_empty, false ) . '"/><br>';
 
@@ -329,6 +352,9 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<label class="wp_banner_template_label" for="five_template"><input class="wp_banner_template_input" type="radio" id="five_template" name="wp_banner_settings_fields[templates]" value="Five"' . checked( 'Five', $is_options_empty, false ) . '"/><br>';
         echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/5.png', __FILE__ ) . '"></label><br>';
 
+        echo '</div>';
+	    echo '<div class="wp_banner_template_right">';
+
         echo '<label class="wp_banner_template_label" for="six_template"><input class="wp_banner_template_input" type="radio" id="six_template" name="wp_banner_settings_fields[templates]" value="Six"' . checked( 'Six', $is_options_empty, false ) . '"/><br>';
         echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/6.png', __FILE__ ) . '"></label><br>';
 
@@ -345,6 +371,8 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/10.png', __FILE__ ) . '"></label><br>';
 
         echo '</div>';
+        echo '</div>';
+	    echo '<br><img class="wp_banner_template_coming_soon" src="' . plugins_url( '../../admin/assets/img/more_templates.png', __FILE__ ) . '">';
     }
 
 }
