@@ -438,7 +438,7 @@ p.wp_banner_title_bottom.wp_banner_ten {
 }
 /* End Template Ten Position Top and Bottom */
 
-span.wp_banner_close_btn_top {
+span.wp_banner_close_btn_top, span.wp_banner_close_btn_bottom {
     position: absolute;
     left: 98%;
     cursor: pointer;

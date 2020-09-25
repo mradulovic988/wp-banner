@@ -292,7 +292,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 		$options = get_option( 'wp_banner_settings_fields' );
 		$is_options_empty = ( ! empty( $options[ 'close_btn' ] ) ? $options[ 'close_btn' ] : '' );
 
-		echo '<label for="wp_banner_close_btn_yes"><input type="radio" id="wp_banner_close_btn_yes" name="wp_banner_settings_fields[close_btn]" value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>' . __( 'Yes', 'wp-banner' ) . '<span class="wp_banner_small_alert">' . __( ' - We use cookies for this part', 'wp-banner' ) . '</span></label><br>';
+		echo '<label for="wp_banner_close_btn_yes"><input type="radio" id="wp_banner_close_btn_yes" name="wp_banner_settings_fields[close_btn]" value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>' . __( 'Yes', 'wp-banner' ) . '<span class="wp_banner_small_alert">' . __( ' - We are using cookies for this option', 'wp-banner' ) . '</span></label><br>';
 
 		echo '<label for="wp_banner_close_btn_no"><input type="radio" id="wp_banner_close_btn_no" name="wp_banner_settings_fields[close_btn]" value="No"' . checked( 'No', $is_options_empty, false ) . '"/>' . __( 'No', 'wp-banner') . '</label><br>';
 	}
