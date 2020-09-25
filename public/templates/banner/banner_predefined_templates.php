@@ -13,9 +13,9 @@ $options_templates = strtolower( $options[ 'templates' ] );
 $options_close_btn = strtolower( $options[ 'close_btn' ] );
 $options_exclude_pages = explode( ', ', $options['exclude'] );
 
-$is_the_btn_clicked = ( $options_close_btn == 'yes' ) ? '<span id="wp_banner_close_btn_wrapper" class="wp_banner_close_btn_' . $options_position . ' wp_banner_close_template_' . $options_templates . '">&times;</span>' : '';
+$is_the_btn_clicked = ( $options_close_btn == 'yes' ) ? '<span onclick="setCookie()" id="wp_banner_close_btn_wrapper" class="wp_banner_close_btn_' . $options_position . ' wp_banner_close_template_' . $options_templates . '">&times;</span>' : '';
 
-if( $options['style'] == 'predefined' && ! is_page( $options_exclude_pages ) ) { ?>
+if( $options['style'] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) ) { ?>
 
 	<div class="wp_banner_wrapper_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
 
