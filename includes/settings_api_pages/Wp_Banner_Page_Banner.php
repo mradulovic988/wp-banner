@@ -338,7 +338,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 		echo '<label for="wp_banner_close_btn_no"><input type="radio" id="wp_banner_close_btn_no" name="wp_banner_settings_fields[close_btn]" value="No"' . checked( 'No', $is_options_empty, false ) . '"/>' . __( 'No', 'wp-banner') . '</label><br>';
 	}
 
-    // Listing all of the pages -> Think about the edit slug comma separated
+    // Excluding pages
     public function wp_banner_field_exclude()
     {
         $options = get_option( 'wp_banner_settings_fields' );
@@ -347,7 +347,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<input type="text" id="wp_banner_id_exclude" name="wp_banner_settings_fields[exclude]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="home, contact, about-us">';
     }
 
-    // Listing all of the pages -> Think about the edit slug comma separated
+	// Title font size
     public function wp_banner_field_title_font_size()
     {
         $options = get_option( 'wp_banner_settings_fields' );
@@ -356,7 +356,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         echo '<input type="number" id="wp_banner_id_title_font_size" name="wp_banner_settings_fields[title_font_size]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="21px" min="12" max="60">';
     }
 
-    // Listing all of the pages -> Think about the edit slug comma separated
+    // Text font size
     public function wp_banner_field_text_font_size()
     {
         $options = get_option( 'wp_banner_settings_fields' );
