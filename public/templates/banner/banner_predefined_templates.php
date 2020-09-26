@@ -25,10 +25,10 @@ if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) &
 
 		<div class="wp_banner_wrapper_title_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
 			<?= $is_the_btn_clicked ?>
-			<p class="wp_banner_title_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'title' ]; ?></p>
+			<p <?= $style_title = ( ! empty( $options[ 'title_font_size' ] ) ) ? 'style="font-size:' . $options[ 'title_font_size' ] . 'px"' : '' ?> class="wp_banner_title_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'title' ]; ?></p>
 		</div>
 		<div class="wp_banner_wrapper_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
-			<p class="wp_banner_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'text' ] ?></p>
+			<p <?= $style_text = ( ! empty( $options[ 'text_font_size' ] ) ) ? 'style="font-size:' . $options[ 'text_font_size' ] . 'px"' : '' ?> class="wp_banner_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'text' ] ?></p>
 		</div>
 	</div>
 

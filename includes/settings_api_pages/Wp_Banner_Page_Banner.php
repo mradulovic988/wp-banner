@@ -99,6 +99,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 		    $this->wp_banner_class_managing
 	    );
 
+
 	    add_settings_field(
 		    'wp_banner_id_debug_mode',
 		    __( 'Debug Mode', 'wp-banner' ),
@@ -152,6 +153,24 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
             'wp_banner_id',
             $this->wp_banner_class_templates
         );
+
+	    add_settings_field(
+		    'wp_banner_id_title_font_size',
+		    __( 'Title Font size (px)', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_title_font_size'),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_templates
+	    );
+
+        add_settings_field(
+		    'wp_banner_id_text_font_size',
+		    __( 'Text Font size (px)', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_text_font_size'),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_templates
+	    );
 
         add_settings_field(
             'wp_banner_id_templates',
@@ -326,6 +345,24 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $is_options_empty = ( ! empty( $options[ 'exclude' ] ) ? $options[ 'exclude' ] : '' );
 
         echo '<input type="text" id="wp_banner_id_exclude" name="wp_banner_settings_fields[exclude]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="home, contact, about-us">';
+    }
+
+    // Listing all of the pages -> Think about the edit slug comma separated
+    public function wp_banner_field_title_font_size()
+    {
+        $options = get_option( 'wp_banner_settings_fields' );
+        $is_options_empty = ( ! empty( $options[ 'title_font_size' ] ) ? $options[ 'title_font_size' ] : '' );
+
+        echo '<input type="number" id="wp_banner_id_title_font_size" name="wp_banner_settings_fields[title_font_size]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="21px" min="12" max="60">';
+    }
+
+    // Listing all of the pages -> Think about the edit slug comma separated
+    public function wp_banner_field_text_font_size()
+    {
+        $options = get_option( 'wp_banner_settings_fields' );
+        $is_options_empty = ( ! empty( $options[ 'text_font_size' ] ) ? $options[ 'text_font_size' ] : '' );
+
+        echo '<input type="number" id="wp_banner_id_text_font_size" name="wp_banner_settings_fields[text_font_size]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="16px" min="12" max="60">';
     }
 
     public function wp_banner_field_templates()
