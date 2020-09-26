@@ -19,6 +19,7 @@ $is_the_btn_clicked     = ( $options_close_btn == 'yes' ) ? '<span ' . $debug_mo
 
 if ( $options[ 'debug_mode' ] == 'enable' ) unset( $_COOKIE['wp_banner_closed_template'] );
 
+// Predefined templates
 if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) ) { ?>
 
 	<div class="wp_banner_wrapper_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
@@ -32,4 +33,28 @@ if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) &
 		</div>
 	</div>
 
-<?php }
+<?php
+
+// Customized templates
+} elseif ( $options[ 'style' ] == 'customize' && ! is_page( $options_exclude_pages ) ) {
+
+    if ( strtolower( $options[ 'position' ] ) == 'top' ) {
+
+	    add_action( 'wp_head', function () use ( $options ) {
+		    echo $html = ( ! empty( $options['html'] ) ) ? $options['html'] : '';
+	    }, 999 );
+
+	    add_action( 'wp_head', function () use ( $options ) {
+		    echo $css = ( ! empty( $options['css'] ) ) ? '<style>' . $options['css'] . '</style>' : '';
+	    }, 999 );
+    } else {
+
+	    add_action( 'wp_footer', function () use ( $options ) {
+		    echo $html = ( ! empty( $options['html'] ) ) ? $options['html'] : '';
+	    }, 999 );
+
+	    add_action( 'wp_footer', function () use ( $options ) {
+		    echo $css = ( ! empty( $options['css'] ) ) ? '<style>' . $options['css'] . '</style>' : '';
+	    }, 999 );
+    }
+}

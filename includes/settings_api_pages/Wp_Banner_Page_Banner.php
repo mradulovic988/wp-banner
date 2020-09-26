@@ -278,7 +278,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         <p class='description'>This is a description</p>
 </div>";
 
-        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[html]" placeholder="' . __( $html_placeholder, 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[html]" placeholder="' . __( $html_placeholder, 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( $is_options_empty ) . '</textarea>';
     }
 
     // Banner title field
