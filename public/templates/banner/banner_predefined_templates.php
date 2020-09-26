@@ -12,7 +12,7 @@ $options = get_option( 'wp_banner_settings_fields' );
 $options_position       = strtolower( $options[ 'position' ] );
 $options_templates      = strtolower( $options[ 'templates' ] );
 $options_close_btn      = strtolower( $options[ 'close_btn' ] );
-$options_close_btn      = strtolower( $options[ 'url' ] );
+$options_url            = strtolower( $options[ 'url' ] );
 $debug_mode             = strtolower( $options[ 'debug_mode' ] );
 $debug_mode_enable      = ( $debug_mode == 'enable' ) ? '' : 'onclick="setCookie()"';
 $options_exclude_pages  = explode( ', ', $options[ 'exclude' ] );
@@ -23,18 +23,20 @@ if ( $options[ 'debug_mode' ] == 'enable' ) unset( $_COOKIE['wp_banner_closed_te
 // Predefined templates
 if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) ) { ?>
 
-	<div class="wp_banner_wrapper_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
+	<div <?= $style_text = ( ! empty( $options[ 'background_color' ] ) ) ? 'style="background-color:' . $options[ 'background_color' ] . '"' : '' ?> class="wp_banner_wrapper_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
 
 		<div class="wp_banner_wrapper_title_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
-			<?= $is_the_btn_clicked ?>
-			<p <?= $style_title = ( ! empty( $options[ 'title_font_size' ] ) ) ? 'style="font-size:' . $options[ 'title_font_size' ] . 'px"' : '' ?> class="wp_banner_title_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'title' ]; ?></p>
+
+            <?= $is_the_btn_clicked ?>
+
+			<p <?= $style_title = ( ! empty( $options[ 'title_font_size' ] ) || ! empty( $options[ 'font_color' ] ) ) ? 'style="font-size:' . $options[ 'title_font_size' ] . 'px; color: ' . $options[ 'font_color' ] . '"' : '' ?> class="wp_banner_title_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'title' ]; ?></p>
 		</div>
 		<div class="wp_banner_wrapper_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
 
             <?php if ( empty( $options[ 'url' ] ) ) { ?>
-			    <p <?= $style_text = ( ! empty( $options[ 'text_font_size' ] ) ) ? 'style="font-size:' . $options[ 'text_font_size' ] . 'px"' : '' ?> class="wp_banner_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'text' ] ?></p>
+			    <p <?= $style_text = ( ! empty( $options[ 'text_font_size' ] ) || ! empty( $options[ 'font_color' ] ) ) ? 'style="font-size:' . $options[ 'text_font_size' ] . 'px; color: ' . $options[ 'font_color' ] . '"' : '' ?> class="wp_banner_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'text' ] ?></p>
             <?php } else { ?>
-                <a href="<?= $options[ 'url' ] ?>" <?= $style_text = ( ! empty( $options[ 'text_font_size' ] ) ) ? 'style="font-size:' . $options[ 'text_font_size' ] . 'px"' : '' ?> class="wp_banner_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'text' ] ?></a>
+                <a href="<?= $options[ 'url' ] ?>" <?= $style_text = ( ! empty( $options[ 'text_font_size' ] ) || ! empty( $options[ 'font_color' ] ) ) ? 'style="font-size:' . $options[ 'text_font_size' ] . 'px; color: ' . $options[ 'font_color' ] . '"' : '' ?> class="wp_banner_desc_<?= $options_position ?> wp_banner_<?= $options_templates ?>"><?= $options[ 'text' ] ?></a>
             <?php } ?>
 
 		</div>

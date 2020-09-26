@@ -163,6 +163,24 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 	    );
 
         add_settings_field(
+		    'wp_banner_id_text_font_color',
+		    __( 'Font Color', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_text_font_color'),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_templates
+	    );
+
+        add_settings_field(
+		    'wp_banner_id_text_background_color',
+		    __( 'Background Color', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_text_background_color'),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_templates
+	    );
+
+        add_settings_field(
             'wp_banner_id_templates',
             __( 'Choose Banner Template', 'wp-banner' ),
             array( $this, 'wp_banner_field_templates'),
@@ -319,6 +337,24 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $is_options_empty = ( ! empty( $options[ 'title_font_size' ] ) ? $options[ 'title_font_size' ] : '' );
 
         echo '<input type="number" id="wp_banner_id_title_font_size" name="wp_banner_settings_fields[title_font_size]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="21px" min="12" max="60">';
+    }
+
+    // Font color
+    public function wp_banner_field_text_font_color()
+    {
+        $options = get_option( 'wp_banner_settings_fields' );
+        $is_options_empty = ( ! empty( $options[ 'font_color' ] ) ? $options[ 'font_color' ] : '' );
+
+        echo '<input type="text" id="wp_banner_id_title_font_color" name="wp_banner_settings_fields[font_color]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="#5eb086">';
+    }
+
+    // Background color
+    public function wp_banner_field_text_background_color()
+    {
+        $options = get_option( 'wp_banner_settings_fields' );
+        $is_options_empty = ( ! empty( $options[ 'background_color' ] ) ? $options[ 'background_color' ] : '' );
+
+        echo '<input type="text" id="wp_banner_id_title_background_color" name="wp_banner_settings_fields[background_color]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="#216338">';
     }
 
     // Text font size
