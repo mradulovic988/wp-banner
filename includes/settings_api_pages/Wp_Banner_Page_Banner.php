@@ -20,7 +20,6 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
      * @var string[] $wp_banner_class_templates Adding a CSS class for templates part on the page
 	 */
     protected $wp_banner_class_managing = array( 'class' => 'wp_banner_class_managing' );
-    protected $wp_banner_class_customization = array( 'class' => 'wp_banner_class_customization' );
     protected $wp_banner_class_templates = array( 'class' => 'wp_banner_class_templates' );
 
     public function __construct() {
@@ -75,7 +74,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 
         add_settings_field(
             'wp_banner_id_style',
-            __( 'Choose your styling', 'wp-banner' ),
+            __( 'Turn Off / Turn On', 'wp-banner' ),
             array( $this, 'wp_banner_field_style' ),
             'wp_banner_settings_sections',
             'wp_banner_id'
@@ -119,24 +118,6 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 	    );
 
         add_settings_field(
-            'wp_banner_id_html',
-            __( 'Banner HTML', 'wp-banner' ),
-            array( $this, 'wp_banner_field_html'),
-            'wp_banner_settings_sections',
-            'wp_banner_id',
-            $this->wp_banner_class_customization
-        );
-
-        add_settings_field(
-            'wp_banner_id_css',
-            __( 'Banner CSS', 'wp-banner' ),
-            array( $this, 'wp_banner_field_css'),
-            'wp_banner_settings_sections',
-            'wp_banner_id',
-            $this->wp_banner_class_customization
-        );
-
-        add_settings_field(
             'wp_banner_id_title',
             __( 'Banner Title', 'wp-banner' ),
             array( $this, 'wp_banner_field_title'),
@@ -153,6 +134,15 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
             'wp_banner_id',
             $this->wp_banner_class_templates
         );
+
+	    add_settings_field(
+		    'wp_banner_id_url',
+		    __( 'Url', 'wp-banner' ),
+		    array( $this, 'wp_banner_field_url'),
+		    'wp_banner_settings_sections',
+		    'wp_banner_id',
+		    $this->wp_banner_class_templates
+	    );
 
 	    add_settings_field(
 		    'wp_banner_id_title_font_size',
@@ -203,7 +193,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     // Banner description message
     public function wp_banner_setting_section()
     {
-        _e( 'Here you can manage all of your styling for the banner itself, such as customization, choosing predefined templates, writing CSS and HTML, etc.', 'wp-banner' );
+        _e( 'Manage all of your styling for the banner itself, such as customization, choosing predefined templates, writing CSS and HTML, etc.', 'wp-banner' );
     }
 
 	/**
@@ -241,22 +231,14 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 
         $this->set_css_class(
             $is_options_empty,
-            'customize',
-            'tr.wp_banner_class_templates { display: none; }'
-        );
-
-        $this->set_css_class(
-            $is_options_empty,
             'predefined',
             'tr.wp_banner_class_customization { display: none; }'
         );
 
 
-        echo '<label for="none"><input type="radio" id="none" name="wp_banner_settings_fields[style]" value="none"' . checked( 'none', $is_options_empty, false ) . '" checked/>' . __( 'Turn off', 'wp-banner' ) . ' <span class="wp_banner_small_alert">' . __( '- Your previously settings will stay saved, but not activated', 'wp-banner' ) . '</span></label><br>';
+        echo '<label for="none"><input type="radio" id="none" name="wp_banner_settings_fields[style]" value="none"' . checked( 'none', $is_options_empty, false ) . '" checked/>' . __( 'Disable', 'wp-banner' ) . ' <span class="wp_banner_small_alert">' . __( '- Previously settings will stay saved, but not activated', 'wp-banner' ) . '</span></label><br>';
 
-        echo '<label for="customization"><input type="radio" id="customization" name="wp_banner_settings_fields[style]" value="customize"' . checked( 'customize', $is_options_empty, false ) . '"/>' . __( 'Customize WP Banner', 'wp-banner' ) . '</label><br>';
-
-        echo '<label for="predefined"><input type="radio" id="predefined" name="wp_banner_settings_fields[style]" value="predefined"' . checked( 'predefined', $is_options_empty, false ) . '"/>' . __( 'Use our predefined templates', 'wp-banner' ) . '</label><br>';
+        echo '<label for="predefined"><input type="radio" id="predefined" name="wp_banner_settings_fields[style]" value="predefined"' . checked( 'predefined', $is_options_empty, false ) . '"/>' . __( 'Enable', 'wp-banner' ) . '</label><br>';
     }
 
     // Banner title field
@@ -266,32 +248,6 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $is_options_empty = $this->wp_banner_sanitize( $options, 'title');
 
         echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[title]" placeholder="' . __( 'Add banner title', 'wp-banner' ) . '" rows="3" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
-    }
-
-    // Banner HTML field
-    public function wp_banner_field_html()
-    {
-        $options = get_option( 'wp_banner_settings_fields' );
-        $is_options_empty = ( ! empty( $options[ 'html' ] ) ? $options[ 'html' ] : '' );
-        $html_placeholder = "<div class='wrapper'>
-        <h1>This is a title</h1>
-        <p class='description'>This is a description</p>
-</div>";
-
-        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[html]" placeholder="' . __( $html_placeholder, 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( $is_options_empty ) . '</textarea>';
-    }
-
-    // Banner title field
-    public function wp_banner_field_css()
-    {
-        $options = get_option( 'wp_banner_settings_fields' );
-        $is_options_empty = ( ! empty( $options[ 'css' ] ) ? $options[ 'css' ] : '' );
-        $css_placeholder = '.class {
-        color: #000;
-        font-size: 16px;
-}';
-
-        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[css]" placeholder="' . __( $css_placeholder, 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
     }
 
     // Banner text field
@@ -345,6 +301,15 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $is_options_empty = ( ! empty( $options[ 'exclude' ] ) ? $options[ 'exclude' ] : '' );
 
         echo '<input type="text" id="wp_banner_id_exclude" name="wp_banner_settings_fields[exclude]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="home, contact, about-us">';
+    }
+
+    // Excluding pages
+    public function wp_banner_field_url()
+    {
+        $options = get_option( 'wp_banner_settings_fields' );
+        $is_options_empty = ( ! empty( $options[ 'url' ] ) ? $options[ 'url' ] : '' );
+
+        echo '<input type="url" id="wp_banner_id_url" name="wp_banner_settings_fields[url]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="https://www.domain.com">';
     }
 
 	// Title font size
