@@ -13,6 +13,17 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 
 	class Wp_Banner_Settings_Api {
 
+	    // Create multidimensional array for all of the settings
+		protected $defaults = array(
+			'general' => array(
+				'enable_bar' => false, // Disable by default
+                ''
+			),
+			'notice' => array(
+				'message_in_text' => '',
+			),
+		);
+
 		public function __construct()
 		{
 			/**
