@@ -17,14 +17,28 @@ if ( ! class_exists( 'Wp_Banner_Public' ) ) {
 			$options = get_option( 'wp_banner_settings_fields' );
 			$options_position = strtolower( $options[ 'position' ] );
 
-			if ( $options_position == 'top' || $options_position == 'popup' ) {
+			if ( $options_position == 'top' ) {
 				add_action( 'wp_head', array( $this, 'include_predefined_templates' ) );
+
+			} elseif ( $options_position == 'popup' ) {
+				add_action( 'wp_head', array( $this, 'include_predefined_templates' ) );
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles_popup' ) );
+
 			} else {
 				add_action( 'wp_footer', array( $this, 'include_predefined_templates' ) );
 			}
 		}
 
-		public function enqueue_styles() {
+		// Script that will be executed only when popup is chosen
+		public function enqueue_styles_popup()
+		{
+			wp_enqueue_style( 'public_popup_css', plugins_url( '/assets/css/public_popup.css', __FILE__ ) );
+			wp_register_script( 'jquery_popup_public', plugins_url( '/assets/js/jquery_popup_public.js', __FILE__ ), [ 'jquery' ] );
+			wp_enqueue_script( 'jquery_popup_public', plugins_url( '/assets/js/jquery_popup_public.js', __FILE__ ), [ 'jquery' ] );
+		}
+
+		public function enqueue_styles()
+		{
 			wp_enqueue_style( 'public_css', plugins_url( '/assets/css/public.css', __FILE__ ) );
 			wp_register_script( 'jquery_public', plugins_url( '/assets/js/jquery_public.js', __FILE__ ), [ 'jquery' ] );
 			wp_enqueue_script( 'jquery_public', plugins_url( '/assets/js/jquery_public.js', __FILE__ ), [ 'jquery' ] );

@@ -302,6 +302,10 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'position' ] ) ? $options[ 'position' ] : '' );
 
+	    $this->set_css_class( $is_options_empty, 'Popup', '.wp_banner_template_wrapper{display:none}' );
+	    $this->set_css_class( $is_options_empty, 'Top', '.wp_banner_template_wrapper_popup{display: none}' );
+	    $this->set_css_class( $is_options_empty, 'Bottom', '.wp_banner_template_wrapper_popup{display: none}' );
+
         echo '
         <label for="wp_banner_position_top">
             <input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" 
@@ -520,6 +524,17 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         
             </div>
         </div>
+        
+        <div class="wp_banner_template_wrapper_popup">
+            <div class="wp_banner_template_left">
+                <h1>test left</h1>
+            </div>
+            
+            <div class="wp_banner_template_right">
+                <h1>test right</h1>
+            </div>
+        </div>
+        
 	    <br><img class="wp_banner_template_coming_soon" src="' . plugins_url( '../../admin/assets/img/more_templates.png', __FILE__ ) . '">';
     }
 

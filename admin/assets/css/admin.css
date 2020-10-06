@@ -118,7 +118,8 @@ span.wp_banner_small_alert {
     font-weight: 500;
 }
 
-.wp_banner_template_wrapper {
+.wp_banner_template_wrapper,
+.wp_banner_template_wrapper_popup {
     display: inline-flex;
 }
 
