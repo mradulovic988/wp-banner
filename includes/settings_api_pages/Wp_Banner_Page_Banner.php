@@ -25,9 +25,6 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'menu_page' ) );
         add_action( 'admin_init', array( $this, 'wp_banner_main_register_settings' ) );
-
-//	    $options = get_option( 'wp_banner_settings_fields' );
-//	    echo '<pre>', var_dump($options), '</pre>';
     }
 
     public function wp_banner_main()
@@ -212,22 +209,6 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     public function wp_banner_setting_section()
     {
         _e( 'Manage all of your styling for the banner itself, such as customization, choosing predefined templates, writing CSS and HTML, etc.', 'wp-banner' );
-    }
-
-	/**
-     * Checking the condition and add a CSS styles
-     *
-	 * @param string $option_name Name of the Setting Option
-	 * @param string $option_args Arguments for the styling for the Settings Option
-	 * @param string $option_style CSS style
-	 *
-	 * @return string
-	 */
-    protected function set_css_class( $option_name, $option_args, $option_style )
-    {
-        if ( $option_name == $option_args ) {
-            echo '<style>' . $option_style . '</style>';
-        }
     }
 
     // Turned on or off

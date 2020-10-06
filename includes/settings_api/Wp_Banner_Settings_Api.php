@@ -86,9 +86,6 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			}
 		}
 
-
-
-
 		public function wp_banner_cookies()
 		{
 			?>
@@ -209,6 +206,22 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			<?php
 		}
 
+
+		/**
+		 * Checking the condition and add a CSS styles
+		 *
+		 * @param string $option_name Name of the Setting Option
+		 * @param string $option_args Arguments for the styling for the Settings Option
+		 * @param string $option_style CSS style
+		 *
+		 * @return string
+		 */
+		protected function set_css_class( $option_name, $option_args, $option_style )
+		{
+			if ( $option_name == $option_args ) {
+				echo '<style>' . $option_style . '</style>';
+			}
+		}
 
 
 	}
