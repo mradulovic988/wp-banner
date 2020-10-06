@@ -21,7 +21,7 @@ $is_the_btn_clicked     = ( $options_close_btn == 'yes' ) ? '<span ' . $debug_mo
 if ( $options[ 'debug_mode' ] == 'enable' ) unset( $_COOKIE['wp_banner_closed_template'] );
 
 // Predefined templates
-if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) ) { ?>
+if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) && $options_position == 'top' || $options_position == 'bottom' ) { ?>
 
 	<div <?= $style_text = ( ! empty( $options[ 'background_color' ] ) ) ? 'style="background-color:' . $options[ 'background_color' ] . '"' : '' ?> class="wp_banner_wrapper_<?= $options_position ?> wp_banner_<?= $options_templates ?>">
 
@@ -44,4 +44,6 @@ if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) &
 		</div>
 	</div>
 
-<?php }
+<?php } else if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) && $options_position == 'popup' ) {
+    // Add popup
+}
