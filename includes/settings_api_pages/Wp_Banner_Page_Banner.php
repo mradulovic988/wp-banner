@@ -286,6 +286,11 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 	    $this->set_css_class( $is_options_empty, 'Popup', '.wp_banner_template_wrapper{display:none}' );
 	    $this->set_css_class( $is_options_empty, 'Top', '.wp_banner_template_wrapper_popup{display: none}' );
 	    $this->set_css_class( $is_options_empty, 'Bottom', '.wp_banner_template_wrapper_popup{display: none}' );
+	    $this->set_css_class(
+	        $is_options_empty,
+            '',
+'.wp_banner_template_wrapper_popup,.wp_banner_template_wrapper,img.wp_banner_template_coming_soon{display: none}'
+        );
 
         echo '
         <label for="wp_banner_position_top">
