@@ -5,4 +5,5 @@ jQuery(document).ready(function($) {
         $(".wp_banner_wrapper_top").fadeOut();
         $(".wp_banner_wrapper_bottom").fadeOut();
     });
+
 });
