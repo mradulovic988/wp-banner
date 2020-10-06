@@ -254,9 +254,20 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         );
 
 
-        echo '<label for="none"><input type="radio" id="none" name="wp_banner_settings_fields[style]" value="none"' . checked( 'none', $is_options_empty, false ) . '" checked/>' . __( 'Disable', 'wp-banner' ) . ' <span class="wp_banner_small_alert">' . __( '- Previously settings will stay saved, but not activated', 'wp-banner' ) . '</span></label><br>';
+        echo '
+        <label for="none">
+            <input type="radio" id="none" name="wp_banner_settings_fields[style]" 
+            value="none"' . checked( 'none', $is_options_empty, false ) . '" checked/>
+            ' . __( 'Disable', 'wp-banner' ) . ' 
+            <span class="wp_banner_small_alert">' . __( '- Previously settings will stay saved, but not activated', 'wp-banner' ) . '</span>
+        </label><br>';
 
-        echo '<label for="predefined"><input type="radio" id="predefined" name="wp_banner_settings_fields[style]" value="predefined"' . checked( 'predefined', $is_options_empty, false ) . '"/>' . __( 'Enable', 'wp-banner' ) . '</label><br>';
+        echo '
+        <label for="predefined">
+            <input type="radio" id="predefined" name="wp_banner_settings_fields[style]" 
+            value="predefined"' . checked( 'predefined', $is_options_empty, false ) . '"/>
+            ' . __( 'Enable', 'wp-banner' ) . '
+        </label><br>';
     }
 
     // Banner title field
@@ -265,7 +276,11 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = $this->wp_banner_sanitize( $options, 'title');
 
-        echo '<textarea id="wp_banner_id_title" name="wp_banner_settings_fields[title]" placeholder="' . __( 'Add banner title', 'wp-banner' ) . '" rows="3" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+        echo '
+        <textarea id="wp_banner_id_title" name="wp_banner_settings_fields[title]" 
+            placeholder="' . __( 'Add banner title', 'wp-banner' ) . '" rows="3" cols="100">' .
+             esc_attr( sanitize_text_field( $is_options_empty ) )
+        . '</textarea>';
     }
 
     // Banner text field
@@ -274,7 +289,11 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'text' ] ) ? $options[ 'text' ] : '' );
 
-        echo '<textarea id="wp_banner_id_text" name="wp_banner_settings_fields[text]" placeholder="' . __( 'Add banner description', 'wp-banner' ) . '" rows="10" cols="100">' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '</textarea>';
+        echo '
+        <textarea id="wp_banner_id_text" name="wp_banner_settings_fields[text]" 
+        placeholder="' . __( 'Add banner description', 'wp-banner' ) . '" rows="10" cols="100">' .
+             esc_attr( sanitize_text_field( $is_options_empty ) )
+        . '</textarea>';
     }
 
     // Banner position field
@@ -283,11 +302,26 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'position' ] ) ? $options[ 'position' ] : '' );
 
-        echo '<label for="wp_banner_position_top"><input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>' . __( 'Top', 'wp-banner') . '</label><br>';
+        echo '
+        <label for="wp_banner_position_top">
+            <input type="radio" id="wp_banner_position_top" name="wp_banner_settings_fields[position]" 
+            value="Top"' . checked( 'Top', $is_options_empty, false ) . '"/>
+            ' . __( 'Top', 'wp-banner') . '
+        </label><br>';
 
-        echo '<label for="wp_banner_position_popup"><input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>' . __( 'Popup', 'wp-banner') . '</label><br>';
+        echo '
+        <label for="wp_banner_position_popup">
+            <input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" 
+            value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>
+            ' . __( 'Popup', 'wp-banner') . '
+        </label><br>';
 
-        echo '<label for="wp_banner_position_bottom"><input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>' . __( 'Bottom', 'wp-banner') . '</label><br>';
+        echo '
+        <label for="wp_banner_position_bottom">
+            <input type="radio" id="wp_banner_position_bottom" name="wp_banner_settings_fields[position]" 
+            value="Bottom"' . checked( 'Bottom', $is_options_empty, false ) . '"/>
+            ' . __( 'Bottom', 'wp-banner') . '
+        </label><br>';
     }
 
     // Banner debug mode field
@@ -296,11 +330,22 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'debug_mode' ] ) ? $options[ 'debug_mode' ] : '' );
 
-//        echo '<pre>', var_dump($options), '</pre>';
+        echo '
+        <label for="wp_banner_debug_mode_on">
+            <input type="radio" id="wp_banner_debug_mode_on" name="wp_banner_settings_fields[debug_mode]" 
+            value="enable"' . checked( 'enable', $is_options_empty, false ) . '"/>
+            ' . __( 'Enable', 'wp-banner') . '
+            <span class="wp_banner_small_alert">
+            ' . __( ' - While this option is enabled, cookies will not be set so you can test your banner. Don\'t forget to disable it.', 'wp-banner' ) . '
+            </span>
+        </label><br>';
 
-        echo '<label for="wp_banner_debug_mode_on"><input type="radio" id="wp_banner_debug_mode_on" name="wp_banner_settings_fields[debug_mode]" value="enable"' . checked( 'enable', $is_options_empty, false ) . '"/>' . __( 'Enable', 'wp-banner') . '<span class="wp_banner_small_alert">' . __( ' - While this option is enabled, cookies will not be set so you can test your banner. Don\'t forget to disable it.', 'wp-banner' ) . '</span></label><br>';
-
-        echo '<label for="wp_banner_debug_mode_off"><input type="radio" id="wp_banner_debug_mode_off" name="wp_banner_settings_fields[debug_mode]" value="disable"' . checked( 'disable', $is_options_empty, false ) . '"/>' . __( 'Disable', 'wp-banner') . '</label><br>';
+        echo '
+        <label for="wp_banner_debug_mode_off">
+            <input type="radio" id="wp_banner_debug_mode_off" name="wp_banner_settings_fields[debug_mode]" 
+            value="disable"' . checked( 'disable', $is_options_empty, false ) . '"/>
+            ' . __( 'Disable', 'wp-banner') . '
+        </label><br>';
     }
 
 	// Banner close button field
@@ -309,9 +354,22 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 		$options = get_option( 'wp_banner_settings_fields' );
 		$is_options_empty = ( ! empty( $options[ 'close_btn' ] ) ? $options[ 'close_btn' ] : '' );
 
-		echo '<label for="wp_banner_close_btn_yes"><input type="radio" id="wp_banner_close_btn_yes" name="wp_banner_settings_fields[close_btn]" value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>' . __( 'Yes', 'wp-banner' ) . '<span class="wp_banner_small_alert">' . __( ' - We are using cookies for this option', 'wp-banner' ) . '</span></label><br>';
+		echo
+        '<label for="wp_banner_close_btn_yes">
+            <input type="radio" id="wp_banner_close_btn_yes" name="wp_banner_settings_fields[close_btn]" 
+            value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>
+            ' . __( 'Yes', 'wp-banner' ) . '
+            <span class="wp_banner_small_alert">
+                ' . __( ' - We are using cookies for this option', 'wp-banner' ) . '
+            </span>
+        </label><br>';
 
-		echo '<label for="wp_banner_close_btn_no"><input type="radio" id="wp_banner_close_btn_no" name="wp_banner_settings_fields[close_btn]" value="No"' . checked( 'No', $is_options_empty, false ) . '"/>' . __( 'No', 'wp-banner') . '</label><br>';
+		echo '
+        <label for="wp_banner_close_btn_no">
+        <input type="radio" id="wp_banner_close_btn_no" name="wp_banner_settings_fields[close_btn]" 
+        value="No"' . checked( 'No', $is_options_empty, false ) . '"/>
+        ' . __( 'No', 'wp-banner') . '
+        </label><br>';
 	}
 
     // Excluding pages
@@ -320,7 +378,11 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'exclude' ] ) ? $options[ 'exclude' ] : '' );
 
-        echo '<input type="text" id="wp_banner_id_exclude" name="wp_banner_settings_fields[exclude]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="home, contact, about-us">';
+        echo '
+        <input type="text" id="wp_banner_id_exclude" name="wp_banner_settings_fields[exclude]" 
+        class="wp-banner-field-size" 
+        value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" 
+        placeholder="home, contact, about-us">';
     }
 
     // Excluding pages
@@ -329,7 +391,11 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'url' ] ) ? $options[ 'url' ] : '' );
 
-        echo '<input type="url" id="wp_banner_id_url" name="wp_banner_settings_fields[url]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="https://www.domain.com">';
+        echo '
+        <input type="url" id="wp_banner_id_url" name="wp_banner_settings_fields[url]" 
+        class="wp-banner-field-size" 
+        value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" 
+        placeholder="https://www.domain.com">';
     }
 
 	// Title font size
@@ -338,7 +404,10 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'title_font_size' ] ) ? $options[ 'title_font_size' ] : '' );
 
-        echo '<input type="number" id="wp_banner_id_title_font_size" name="wp_banner_settings_fields[title_font_size]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="21px" min="12" max="60">';
+        echo '<input type="number" id="wp_banner_id_title_font_size" name="wp_banner_settings_fields[title_font_size]" 
+        class="wp-banner-field-size" 
+        value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" 
+        placeholder="21px" min="12" max="60">';
     }
 
     // Font color
@@ -347,7 +416,10 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'font_color' ] ) ? $options[ 'font_color' ] : '' );
 
-        echo '<input type="text" id="wp_banner_id_title_font_color" name="wp_banner_settings_fields[font_color]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="#5eb086">';
+        echo '<input type="text" id="wp_banner_id_title_font_color" name="wp_banner_settings_fields[font_color]" 
+        class="wp-banner-field-size" 
+        value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" 
+        placeholder="#5eb086">';
     }
 
     // Background color
@@ -356,7 +428,10 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'background_color' ] ) ? $options[ 'background_color' ] : '' );
 
-        echo '<input type="text" id="wp_banner_id_title_background_color" name="wp_banner_settings_fields[background_color]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="#216338">';
+        echo '<input type="text" id="wp_banner_id_title_background_color" name="wp_banner_settings_fields[background_color]" 
+        class="wp-banner-field-size" 
+        value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" 
+        placeholder="#216338">';
     }
 
     // Text font size
@@ -365,7 +440,10 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'text_font_size' ] ) ? $options[ 'text_font_size' ] : '' );
 
-        echo '<input type="number" id="wp_banner_id_text_font_size" name="wp_banner_settings_fields[text_font_size]" class="wp-banner-field-size" value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" placeholder="16px" min="12" max="60">';
+        echo '<input type="number" id="wp_banner_id_text_font_size" name="wp_banner_settings_fields[text_font_size]" 
+        class="wp-banner-field-size" 
+        value="' . esc_attr( sanitize_text_field( $is_options_empty ) ) . '" 
+        placeholder="16px" min="12" max="60">';
     }
 
     public function wp_banner_field_templates()
@@ -373,46 +451,76 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'templates' ] ) ? $options[ 'templates' ] : '' );
 
-        echo '<div class="wp_banner_template_wrapper">';
-        echo '<div class="wp_banner_template_left">';
-
-        echo '<label class="wp_banner_template_label" for="first_template"><input class="wp_banner_template_input" type="radio" id="first_template" name="wp_banner_settings_fields[templates]" value="First"' . checked( 'First', $is_options_empty, false ) . '"/><br>';
-
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/1.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="second_template"><input class="wp_banner_template_input" type="radio" id="second_template" name="wp_banner_settings_fields[templates]" value="Second"' . checked( 'Second', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/2.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="third_template"><input class="wp_banner_template_input" type="radio" id="third_template" name="wp_banner_settings_fields[templates]" value="Third"' . checked( 'Third', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/3.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="four_template"><input class="wp_banner_template_input" type="radio" id="four_template" name="wp_banner_settings_fields[templates]" value="Four"' . checked( 'Four', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/4.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="five_template"><input class="wp_banner_template_input" type="radio" id="five_template" name="wp_banner_settings_fields[templates]" value="Five"' . checked( 'Five', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/5.png', __FILE__ ) . '"></label><br>';
-
-        echo '</div>';
-	    echo '<div class="wp_banner_template_right">';
-
-        echo '<label class="wp_banner_template_label" for="six_template"><input class="wp_banner_template_input" type="radio" id="six_template" name="wp_banner_settings_fields[templates]" value="Six"' . checked( 'Six', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/6.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="seven_template"><input class="wp_banner_template_input" type="radio" id="seven_template" name="wp_banner_settings_fields[templates]" value="Seven"' . checked( 'Seven', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/7.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="eight_template"><input class="wp_banner_template_input" type="radio" id="eight_template" name="wp_banner_settings_fields[templates]" value="Eight"' . checked( 'Eight', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/8.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="nine_template"><input class="wp_banner_template_input" type="radio" id="nine_template" name="wp_banner_settings_fields[templates]" value="Nine"' . checked( 'Nine', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/9.png', __FILE__ ) . '"></label><br>';
-
-        echo '<label class="wp_banner_template_label" for="ten_template"><input class="wp_banner_template_input" type="radio" id="ten_template" name="wp_banner_settings_fields[templates]" value="Ten"' . checked( 'Ten', $is_options_empty, false ) . '"/><br>';
-        echo '<img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/10.png', __FILE__ ) . '"></label><br>';
-
-        echo '</div>';
-        echo '</div>';
-	    echo '<br><img class="wp_banner_template_coming_soon" src="' . plugins_url( '../../admin/assets/img/more_templates.png', __FILE__ ) . '">';
+        echo '
+        <div class="wp_banner_template_wrapper">
+            <div class="wp_banner_template_left">
+    
+                <label class="wp_banner_template_label" for="first_template">
+                    <input class="wp_banner_template_input" type="radio" id="first_template" name="wp_banner_settings_fields[templates]" 
+                        value="First"' . checked( 'First', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/1.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="second_template">
+                    <input class="wp_banner_template_input" type="radio" id="second_template" name="wp_banner_settings_fields[templates]" 
+                        value="Second"' . checked( 'Second', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/2.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="third_template">
+                    <input class="wp_banner_template_input" type="radio" id="third_template" name="wp_banner_settings_fields[templates]" 
+                        value="Third"' . checked( 'Third', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/3.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="four_template">
+                    <input class="wp_banner_template_input" type="radio" id="four_template" name="wp_banner_settings_fields[templates]" 
+                        value="Four"' . checked( 'Four', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/4.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="five_template">
+                    <input class="wp_banner_template_input" type="radio" id="five_template" name="wp_banner_settings_fields[templates]" 
+                        value="Five"' . checked( 'Five', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/5.png', __FILE__ ) . '">
+                </label><br>
+    
+            </div>
+            <div class="wp_banner_template_right">
+    
+                <label class="wp_banner_template_label" for="six_template">
+                    <input class="wp_banner_template_input" type="radio" id="six_template" name="wp_banner_settings_fields[templates]" 
+                        value="Six"' . checked( 'Six', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/6.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="seven_template">
+                    <input class="wp_banner_template_input" type="radio" id="seven_template" name="wp_banner_settings_fields[templates]" 
+                        value="Seven"' . checked( 'Seven', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/7.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="eight_template">
+                    <input class="wp_banner_template_input" type="radio" id="eight_template" name="wp_banner_settings_fields[templates]" 
+                        value="Eight"' . checked( 'Eight', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/8.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="nine_template">
+                    <input class="wp_banner_template_input" type="radio" id="nine_template" name="wp_banner_settings_fields[templates]" 
+                        value="Nine"' . checked( 'Nine', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/9.png', __FILE__ ) . '">
+                </label><br>
+        
+                <label class="wp_banner_template_label" for="ten_template">
+                    <input class="wp_banner_template_input" type="radio" id="ten_template" name="wp_banner_settings_fields[templates]" 
+                        value="Ten"' . checked( 'Ten', $is_options_empty, false ) . '"/><br>
+                    <img class="wp_banner_template_img" src="' . plugins_url( '../../admin/assets/img/10.png', __FILE__ ) . '">
+                </label><br>
+        
+            </div>
+        </div>
+	    <br><img class="wp_banner_template_coming_soon" src="' . plugins_url( '../../admin/assets/img/more_templates.png', __FILE__ ) . '">';
     }
 
 }
