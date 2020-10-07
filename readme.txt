@@ -1,5 +1,5 @@
 === WP Banner ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: upss1988
 Donate link: http://example.com/
 Tags: comments, spam
 Requires at least: 5.1
