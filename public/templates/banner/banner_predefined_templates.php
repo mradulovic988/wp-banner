@@ -46,17 +46,14 @@ if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) &
 
 <?php } else if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) && $options_position == 'popup' ) {
     // popup
-?>
-    <div class='popup'>
-        <div class='cnt223'>
+    ?>
+    <div class='wp_banner_popup'>
+        <div class='wp_banner_popup_wrapper'>
             <h1>Important Notice</h1>
-            <p>
-                We were affected by the fire next door and will remain closed until further notice.
-                <br/>
-                <br/>
-                <a href='' class='close'>Close</a>
+            <p>We were affected by the fire next door and will remain closed until further notice.
+                <a href='#' class='wp_banner_popup_close'>Close</a>
             </p>
         </div>
     </div>
-<?php
+    <?php
 }

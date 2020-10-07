@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
-    var overlay = $('<div id="overlay"></div>');
+    let overlay = $('<div id="wp_banner_popup_overlay"></div>');
     overlay.show();
     overlay.appendTo(document.body);
-    $('.popup').show();
-    $('.close').click(function () {
-        $('.popup').hide();
+    $('.wp_banner_popup').show();
+    $('.wp_banner_popup_close').click(function () {
+        $('.wp_banner_popup').hide();
         overlay.appendTo(document.body).remove();
         return false;
     });
