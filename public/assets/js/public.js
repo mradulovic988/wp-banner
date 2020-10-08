@@ -15,11 +15,3 @@ function getCookie(name) {
     }
     return null;
 }
-
-let cookie_set = getCookie("wp_banner_closed_template");
-if(cookie_set){
-    let overlay = document.getElementById("wp_banner_popup_overlay");
-    overlay.style.display='none';
-
-    alert("testic");
-}
