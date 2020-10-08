@@ -20,7 +20,7 @@ $is_the_btn_clicked     = ( $options_close_btn == 'yes' ) ? '<span ' . $debug_mo
 
 if ( $options[ 'debug_mode' ] == 'enable' ) unset( $_COOKIE['wp_banner_closed_template'] );
 
-if ( $_COOKIE['wp_banner_closed_template'] ) { ?>
+if ( isset( $_COOKIE['wp_banner_closed_template'] ) ) { ?>
     <style>div#wp_banner_popup_overlay{display:none!important;}</style>
 <?php }
 
