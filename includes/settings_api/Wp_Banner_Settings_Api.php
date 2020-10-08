@@ -216,7 +216,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 		 *
 		 * @return string
 		 */
-		protected function set_css_class( $option_name, $option_args, $option_style )
+		public function set_css_class( $option_name, $option_args, $option_style )
 		{
 			if ( $option_name == $option_args ) {
 				echo '<style>' . $option_style . '</style>';

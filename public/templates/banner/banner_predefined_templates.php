@@ -20,6 +20,10 @@ $is_the_btn_clicked     = ( $options_close_btn == 'yes' ) ? '<span ' . $debug_mo
 
 if ( $options[ 'debug_mode' ] == 'enable' ) unset( $_COOKIE['wp_banner_closed_template'] );
 
+if ( $_COOKIE['wp_banner_closed_template'] ) { ?>
+    <style>div#wp_banner_popup_overlay{display:none!important;}</style>
+<?php }
+
 // Predefined templates
 if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] ) && $options_position == 'top' || $options_position == 'bottom' ) { ?>
 
@@ -49,10 +53,17 @@ if( $options[ 'style' ] == 'predefined' && ! is_page( $options_exclude_pages ) &
     ?>
     <div class='wp_banner_popup'>
         <div class='wp_banner_popup_wrapper'>
-            <h1>Important Notice</h1>
-            <p>We were affected by the fire next door and will remain closed until further notice.
-                <a href='#' class='wp_banner_popup_close'>Close</a>
-            </p>
+            <span <?= $debug_mode_enable ?> class='wp_banner_popup_close'>&times;</span>
+            <h1><?= $options[ 'title' ]; ?></h1>
+
+	        <?php if ( ! empty( $options[ 'text' ] ) ) { ?>
+		        <?php if ( empty( $options[ 'url' ] ) ) { ?>
+                    <p><?= $options[ 'text' ] ?></p>
+		        <?php } else { ?>
+                    <a href="<?= $options[ 'url' ] ?>"><?= $options[ 'text' ] ?></a>
+		        <?php } ?>
+	        <?php } ?>
+
         </div>
     </div>
     <?php

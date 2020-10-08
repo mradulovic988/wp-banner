@@ -60,6 +60,10 @@
     width: 34px;
 }
 
-.wp_banner_wrapper .x:hover{
+.wp_banner_wrapper .x:hover {
+    cursor: pointer;
+}
+
+span.wp_banner_popup_close {
     cursor: pointer;
 }
