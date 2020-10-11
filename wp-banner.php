@@ -20,11 +20,9 @@
 
  if ( ! class_exists( 'Wp_Banner' ) ) {
 
-    class Wp_Banner
-    {
+    class Wp_Banner {
 
-        public function __construct()
-        {
+        public function __construct() {
 	        if ( ! defined( 'WP_BANNER_PLUGIN_PATH' ) ) {
                 define ( 'WP_BANNER_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 	        }

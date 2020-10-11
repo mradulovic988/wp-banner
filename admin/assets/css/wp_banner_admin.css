@@ -123,13 +123,21 @@ span.wp_banner_small_alert {
     display: inline-flex;
 }
 
+.wp_banner_template_center,
+.wp_banner_template_left,
+.wp_banner_template_right {
+    width: 33%;
+}
+
 .wp_banner_template_left {
-    width: 49%;
     padding: 0 10px 0 0;
 }
 
+.wp_banner_template_center {
+    padding: 0 10px 0 10px;
+}
+
 .wp_banner_template_right {
-    width: 49%;
     padding: 0 0 0 10px;
 }
 

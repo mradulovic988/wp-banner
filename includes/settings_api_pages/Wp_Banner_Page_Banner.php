@@ -27,8 +27,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         add_action( 'admin_init', array( $this, 'wp_banner_main_register_settings' ) );
     }
 
-    public function wp_banner_main()
-    {
+    public function wp_banner_main() {
         ?>
         <div class="wrap">
             <div id="icon-options-general" class="icon32"></div>
@@ -54,8 +53,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     /**
      * Method where we register settings, sections for the WP Banner page
      */
-    public function wp_banner_main_register_settings()
-    {
+    public function wp_banner_main_register_settings() {
         register_setting(
             'wp_banner_settings_fields',
             'wp_banner_settings_fields',
@@ -194,8 +192,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 	 * @param string $input Passed properties
 	 * @return bool
 	 */
-    public function wp_banner_sanitize( $input, $arg )
-    {
+    public function wp_banner_sanitize( $input, $arg ) {
         if( is_admin() ) {
             if ( empty( $input) && ! preg_match( '/^\d{5}(\-?\d{4})?$<>/', $input ) ) {
                 return false;
@@ -206,14 +203,12 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Banner description message
-    public function wp_banner_setting_section()
-    {
+    public function wp_banner_setting_section() {
         _e( 'Manage all of your styling for the banner itself, such as customization, choosing predefined templates, writing CSS and HTML, etc.', 'wp-banner' );
     }
 
     // Turned on or off
-    public function wp_banner_field_style()
-    {
+    public function wp_banner_field_style() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'style' ] ) ? $options[ 'style' ] : '' );
 
@@ -252,8 +247,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Banner title field
-    public function wp_banner_field_title()
-    {
+    public function wp_banner_field_title() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = $this->wp_banner_sanitize( $options, 'title');
 
@@ -265,8 +259,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Banner text field
-    public function wp_banner_field_text()
-    {
+    public function wp_banner_field_text() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'text' ] ) ? $options[ 'text' ] : '' );
 
@@ -278,8 +271,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Banner position field
-    public function wp_banner_field_position()
-    {
+    public function wp_banner_field_position() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'position' ] ) ? $options[ 'position' ] : '' );
 
@@ -315,8 +307,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Banner debug mode field
-    public function wp_banner_field_debug_mode()
-    {
+    public function wp_banner_field_debug_mode() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'debug_mode' ] ) ? $options[ 'debug_mode' ] : '' );
 
@@ -339,17 +330,16 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
 	// Banner close button field
-	public function wp_banner_field_close_btn()
-	{
+	public function wp_banner_field_close_btn() {
 		$options = get_option( 'wp_banner_settings_fields' );
 		$is_options_empty = ( ! empty( $options[ 'close_btn' ] ) ? $options[ 'close_btn' ] : '' );
 
 		echo
         '<label for="wp_banner_close_btn_yes">
             <input type="radio" id="wp_banner_close_btn_yes" name="wp_banner_settings_fields[close_btn]" 
-            value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>
-            ' . __( 'Yes', 'wp-banner' ) . '
-            <span class="wp_banner_small_alert">
+            value="Yes"' . checked( 'Yes', $is_options_empty, false ) . '"/>' .
+            __( 'Yes', 'wp-banner' )
+            . '<span class="wp_banner_small_alert">
                 ' . __( ' - We are using cookies for this option', 'wp-banner' ) . '
             </span>
         </label><br>';
@@ -363,8 +353,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 	}
 
     // Excluding pages
-    public function wp_banner_field_exclude()
-    {
+    public function wp_banner_field_exclude() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'exclude' ] ) ? $options[ 'exclude' ] : '' );
 
@@ -376,8 +365,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Excluding pages
-    public function wp_banner_field_url()
-    {
+    public function wp_banner_field_url() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'url' ] ) ? $options[ 'url' ] : '' );
 
@@ -389,8 +377,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
 	// Title font size
-    public function wp_banner_field_title_font_size()
-    {
+    public function wp_banner_field_title_font_size() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'title_font_size' ] ) ? $options[ 'title_font_size' ] : '' );
 
@@ -401,8 +388,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Font color
-    public function wp_banner_field_text_font_color()
-    {
+    public function wp_banner_field_text_font_color() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'font_color' ] ) ? $options[ 'font_color' ] : '' );
 
@@ -413,8 +399,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Background color
-    public function wp_banner_field_text_background_color()
-    {
+    public function wp_banner_field_text_background_color() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'background_color' ] ) ? $options[ 'background_color' ] : '' );
 
@@ -425,8 +410,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
     }
 
     // Text font size
-    public function wp_banner_field_text_font_size()
-    {
+    public function wp_banner_field_text_font_size() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'text_font_size' ] ) ? $options[ 'text_font_size' ] : '' );
 
@@ -436,8 +420,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         placeholder="16px" min="12" max="60">';
     }
 
-    public function wp_banner_field_templates()
-    {
+    public function wp_banner_field_templates() {
         $options = get_option( 'wp_banner_settings_fields' );
         $is_options_empty = ( ! empty( $options[ 'templates' ] ) ? $options[ 'templates' ] : '' );
 
@@ -514,6 +497,10 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
         <div class="wp_banner_template_wrapper_popup">
             <div class="wp_banner_template_left">
                 <h1>test left</h1>
+            </div>
+            
+            <div class="wp_banner_template_center">
+                <h1>test center</h1>
             </div>
             
             <div class="wp_banner_template_right">

@@ -24,14 +24,13 @@ if ( isset( $_COOKIE['wp_banner_closed_template'] ) ) { ?>
     <style>div#wp_banner_popup_overlay{display:none!important;}</style>
 <?php }
 
-// Predefined templates
 if( $options[ 'style' ] == 'predefined'
     && ! is_page( $options_exclude_pages )
     && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] )
     && $options_position == 'top'
     || $options_position == 'bottom' ) {
 
-    // Top and bottom
+    // Top and bottom position
 	include WP_BANNER_PLUGIN_PATH . '/public/templates/banner/template-parts/wp_banner_top_bottom.php';
 
 
@@ -40,6 +39,6 @@ if( $options[ 'style' ] == 'predefined'
     && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] )
     && $options_position == 'popup' ) {
 
-    // popup
+    // Popup position
     include WP_BANNER_PLUGIN_PATH . '/public/templates/banner/template-parts/wp_banner_popup.php';
 }

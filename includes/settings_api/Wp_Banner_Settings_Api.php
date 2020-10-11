@@ -24,8 +24,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			),
 		);
 
-		public function __construct()
-		{
+		public function __construct() {
 			/**
 			 * Including all of the pages for the Settings API
 			 */
@@ -38,13 +37,11 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 		/**
 		 * Show notice message on form submit
 		 */
-		public function show_error_notice()
-		{
+		public function show_error_notice() {
 			settings_errors();
 		}
 
-		public function menu_page()
-		{
+		public function menu_page() {
 			add_menu_page( __( 'WP Banner', 'wp-banner'), __( 'WP Banner', 'wp-banner'), 'manage_options', 'wp_banner', array( $this, 'wp_banner_main' ), 'dashicons-clipboard' );
 			add_submenu_page( 'wp_banner', __( 'WP Banner', 'wp-banner' ), __( 'WP Banner', 'wp-banner' ), 'manage_options', 'wp_banner', array( $this, 'wp_banner_main' ) );
 			add_submenu_page( 'wp_banner', __( 'Cookies', 'wp-banner' ), __( 'Cookies', 'wp-banner' ), 'manage_options', 'wp_cookies', array( $this, 'wp_banner_cookies' ) );
@@ -61,8 +58,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 		 * @param string $is_active Declare activate tab attribute
 		 * @param string $is_next Declare next tab
 		 */
-		protected function is_active( $active_tab, $is_active, $is_next )
-		{
+		protected function is_active( $active_tab, $is_active, $is_next ) {
 			?>
             <h2 class="nav-tab-wrapper">
                 <a href="?page=wp_banner" class="nav-tab <?php if( $active_tab == 'wp_banner' ) { echo 'nav-tab-active'; } ?> "><?php _e( 'WP Banner', 'wp-banner' ); ?></a>
@@ -86,8 +82,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			}
 		}
 
-		public function wp_banner_cookies()
-		{
+		public function wp_banner_cookies() {
 			?>
             <div class="wrap">
                 <div id="icon-options-general" class="icon32"></div>
@@ -110,8 +105,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			<?php
 		}
 
-		public function wp_banner_maintenance()
-		{
+		public function wp_banner_maintenance() {
 			?>
             <div class="wrap">
                 <div id="icon-options-general" class="icon32"></div>
@@ -134,8 +128,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			<?php
 		}
 
-		public function wp_banner_popup()
-		{
+		public function wp_banner_popup() {
 			?>
             <div class="wrap">
                 <div id="icon-options-general" class="icon32"></div>
@@ -158,8 +151,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			<?php
 		}
 
-		public function wp_banner_docs()
-		{
+		public function wp_banner_docs() {
 			?>
             <div class="wrap">
                 <div id="icon-options-general" class="icon32"></div>
@@ -182,8 +174,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 			<?php
 		}
 
-		public function wp_banner_premium()
-		{
+		public function wp_banner_premium() {
 			?>
             <div class="wrap">
                 <div id="icon-options-general" class="icon32"></div>
@@ -216,8 +207,7 @@ if ( ! class_exists( 'Wp_Banner_Settings_Api' ) ) {
 		 *
 		 * @return string
 		 */
-		public function set_css_class( $option_name, $option_args, $option_style )
-		{
+		public function set_css_class( $option_name, $option_args, $option_style ) {
 			if ( $option_name == $option_args ) {
 				echo '<style>' . $option_style . '</style>';
 			}
