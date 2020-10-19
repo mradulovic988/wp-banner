@@ -37,6 +37,10 @@ jQuery(document).ready(function( $ ) {
             $(".wp_banner_template_wrapper").show().css("display", "inline-flex");
             $(".wp_banner_template_wrapper_popup").hide();
 
+        } else if($("input#wp_banner_position_sticky").is(':checked')) {
+            $(".wp_banner_template_wrapper").show().css("display", "inline-flex");
+            $(".wp_banner_template_wrapper_popup").hide();
+
         } else {
             $(".wp_banner_template_wrapper").hide();
         }

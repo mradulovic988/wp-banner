@@ -16,7 +16,7 @@ if ( ! class_exists( 'Wp_Banner_Public' ) ) {
 			$options = get_option( 'wp_banner_settings_fields' );
 			$options_position = strtolower( $options[ 'position' ] );
 
-			if ( $options_position == 'top' ) {
+			if ( $options_position == 'top' || $options_position == 'sticky' ) {
 				add_action( 'wp_head', array( $this, 'include_predefined_templates' ) );
 
 			} elseif ( $options_position == 'popup' ) {

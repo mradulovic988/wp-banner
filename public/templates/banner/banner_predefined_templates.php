@@ -28,7 +28,8 @@ if( $options[ 'style' ] == 'predefined'
     && ! is_page( $options_exclude_pages )
     && ! isset( $_COOKIE[ 'wp_banner_closed_template' ] )
     && $options_position == 'top'
-    || $options_position == 'bottom' ) {
+    || $options_position == 'bottom'
+    || $options_position == 'sticky' ) {
 
     // Top and bottom position
 	include WP_BANNER_PLUGIN_PATH . '/public/templates/banner/template-parts/wp_banner_top_bottom.php';

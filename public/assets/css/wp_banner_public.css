@@ -1,4 +1,25 @@
-/* Template First Position Top and Bottom */
+/* Template First Position Top, Bottom and Sticky */
+.wp_banner_wrapper_sticky {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+p.wp_banner_title_sticky {
+    margin-top: 12px;
+}
+
+.wp_banner_wrapper_sticky span#wp_banner_close_btn_wrapper {
+    float: right;
+}
+
+span#wp_banner_close_btn_wrapper {
+    cursor: pointer;
+    position: relative;
+    right: 1%;
+}
+
 span.wp_banner_close_template_first {
     color: #210E06;
 }

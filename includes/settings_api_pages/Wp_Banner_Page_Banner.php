@@ -278,6 +278,7 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
 	    $this->set_css_class( $is_options_empty, 'Popup', '.wp_banner_template_wrapper{display:none}' );
 	    $this->set_css_class( $is_options_empty, 'Top', '.wp_banner_template_wrapper_popup{display: none}' );
 	    $this->set_css_class( $is_options_empty, 'Bottom', '.wp_banner_template_wrapper_popup{display: none}' );
+	    $this->set_css_class( $is_options_empty, 'Sticky', '.wp_banner_template_wrapper_popup{display: none}' );
 	    $this->set_css_class(
 	        $is_options_empty,
             '',
@@ -296,6 +297,13 @@ class Wp_Banner_Page_Banner extends Wp_Banner_Settings_Api {
             <input type="radio" id="wp_banner_position_popup" name="wp_banner_settings_fields[position]" 
             value="Popup"' . checked( 'Popup', $is_options_empty, false ) . '"/>
             ' . __( 'Popup', 'wp-banner') . '
+        </label><br>';
+
+	    echo '
+        <label for="wp_banner_position_sticky">
+            <input type="radio" id="wp_banner_position_sticky" name="wp_banner_settings_fields[position]" 
+            value="Sticky"' . checked( 'Sticky', $is_options_empty, false ) . '"/>
+            ' . __( 'Sticky', 'wp-banner') . '
         </label><br>';
 
         echo '

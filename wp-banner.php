@@ -18,6 +18,13 @@
  * Domain Path:       /languages
  */
 
+/**
+ * Set somewhere
+ * if ( ! defined( 'ABSPATH' ) ) {
+ *     exit;
+ * }
+ */
+
  if ( ! class_exists( 'Wp_Banner' ) ) {
 
     class Wp_Banner {
